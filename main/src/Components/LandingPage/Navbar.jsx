@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { CgArrowsExchange } from 'react-icons/cg'
+import { CgArrowsExchange } from "react-icons/cg";
 
 const Navbar = () => {
   const handleChange = (e) => {};
@@ -42,7 +42,9 @@ const Navbar = () => {
           <Link to="">.</Link>
         </div>
         <div>
-          <Link to=""><div className='navbar__profilePic'></div></Link>       
+          <Link to="">
+            <div className="navbar__profilePic"></div>
+          </Link>
         </div>
       </div>
 
@@ -65,7 +67,7 @@ const Navbar = () => {
           <div className="navbar___input" onChange={handleChange}>
             <input type="text" />
             <button>X</button>
-            <CgArrowsExchange size="2rem"/>
+            <CgArrowsExchange size="2rem" />
           </div>
         </div>
         <div>
@@ -85,6 +87,12 @@ const Navbar = () => {
         <div className="navbar__searchBtn">
           <button>Search</button>
         </div>
+      </div>
+      <div className='navbar__offerDiv'>
+        <img
+          src="https://images.ixigo.com/image/upload/c847b7c6204ca0edf9cf60cca354a931-spkas.png"
+          alt=""
+        />
       </div>
     </div>
   );
