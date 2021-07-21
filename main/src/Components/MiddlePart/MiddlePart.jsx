@@ -1,5 +1,6 @@
 import React from 'react'
-import BusDestination from './BusDestination'
+import BusDestination from './BusRoutes'
+
 
 const MiddlePart = () => {
     return (
