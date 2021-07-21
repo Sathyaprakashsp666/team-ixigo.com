@@ -1,11 +1,9 @@
 import "./App.css";
-// import Iamge from "./iamge/Iamge";
-// import Slider from "./iamge/Slider";
+import Routes from "../src/Components/Routes/Rotes"
 
 function App() {
   return <div>
-    
-    new project
+    <Routes/>
   </div>;
 }
 
