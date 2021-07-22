@@ -3,9 +3,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 // import { CgArrowsExchange } from 'react-icons/cg'
-import { CgArrowsExchange } from "react-icons/cg";
-import { FaUserCircle } from "react-icons/fa";
-import TransitionsModal from "./LoginModal";
+// import { CgArrowsExchange } from "react-icons/cg";
+// import { FaUserCircle } from "react-icons/fa";
+// import TransitionsModal from "./LoginModal";
 
 
 
@@ -52,7 +52,7 @@ const Navbar = () => {
         <div>
           <Link to="">
             <div className="navbar__profilePic">
-              <TransitionsModal img={<FaUserCircle size='2rem'/>} />
+              {/* <TransitionsModal img={<FaUserCircle size='2rem'/>} /> */}
             </div>
           </Link>
         </div>
@@ -78,7 +78,7 @@ const Navbar = () => {
             <input type="text" />
             <button>X</button>
            
-            <CgArrowsExchange size="2rem" />
+            {/* <CgArrowsExchange size="2rem" /> */}
           </div>
         </div>
         <div>
