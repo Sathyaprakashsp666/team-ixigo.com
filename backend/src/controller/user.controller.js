@@ -26,5 +26,21 @@ router.get("/buses/location/ac", async (req, res) => {
   res.status(200).json({ data: user });
 });
 
+//sleeper
+router.get("/buses/location/ac", async (req, res) => {
+    const from = req.query.from;
+    const to = req.query.to;
+    const user = await User.find({$and: [{sourceStationName:from}, {destinationStationName: to}, {sleeper: true}]})
+    res.status(200).json({ data: user });
+  });
+
+  //Volvo
+router.get("/buses/location/ac", async (req, res) => {
+    const from = req.query.from;
+    const to = req.query.to;
+    const user = await User.find({$and: [{sourceStationName:from}, {destinationStationName: to}, {VOLVO: true}]})
+    res.status(200).json({ data: user });
+  });
+
 
 module.exports = router;
