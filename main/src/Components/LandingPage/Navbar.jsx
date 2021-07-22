@@ -2,8 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { CgArrowsExchange } from "react-icons/cg";
+import { FaUserCircle } from "react-icons/fa";
+import TransitionsModal from "./LoginModal";
+
+
+
 
 const Navbar = () => {
+ 
   const handleChange = (e) => {};
 
   return (
@@ -43,7 +49,9 @@ const Navbar = () => {
         </div>
         <div>
           <Link to="">
-            <div className="navbar__profilePic"></div>
+            <div className="navbar__profilePic">
+              <TransitionsModal img={<FaUserCircle size='2rem'/>} />
+            </div>
           </Link>
         </div>
       </div>
@@ -88,7 +96,7 @@ const Navbar = () => {
           <button>Search</button>
         </div>
       </div>
-      <div className='navbar__offerDiv'>
+      <div className="navbar__offerDiv">
         <img
           src="https://images.ixigo.com/image/upload/c847b7c6204ca0edf9cf60cca354a931-spkas.png"
           alt=""
