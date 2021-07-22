@@ -1,10 +1,10 @@
 const express = require("express");
+const cors = require("cors")
 const app = express();
-// const cors = require("cors");
 app.use(express.json());
+app.use(cors())
+const busRoutes = require("./routes/bus.routes");
 
-const userController = require("./controller/user.controller");
-
-app.use("/users", userController);
+app.use(busRoutes);
 
 module.exports = app;

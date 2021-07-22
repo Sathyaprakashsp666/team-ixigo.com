@@ -10,7 +10,7 @@ const MiddlePart = () => {
             <BusDestination />
             <BusApp />
             <div style={{clear:"both"}}></div>
-            <Footer />
+            
             
         </div>
     )
