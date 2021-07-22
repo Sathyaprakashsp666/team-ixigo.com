@@ -2,7 +2,7 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { CgArrowsExchange } from 'react-icons/cg'
+// import { CgArrowsExchange } from 'react-icons/cg'
 
 const Navbar = () => {
   const handleChange = (e) => {};
@@ -66,7 +66,7 @@ const Navbar = () => {
           <div className="navbar___input" onChange={handleChange}>
             <input type="text" />
             <button>X</button>
-            <CgArrowsExchange size="2rem"/>
+            {/* <CgArrowsExchange size="2rem"/> */}
           </div>
         </div>
         <div>
