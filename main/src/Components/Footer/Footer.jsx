@@ -2,6 +2,9 @@ import React from 'react'
 import style from './Footer.module.css'
 import Routes from './Routes'
 import FooterLink from './FooterLink'
+import FacebookIcon from '@material-ui/icons/Facebook'
+import TwitterIcon from '@material-ui/icons/Twitter'
+import YouTubeIcon from '@material-ui/icons/YouTube'
 
 const Footer = () => {
   var footerDescription = [
@@ -14,6 +17,7 @@ const Footer = () => {
     'CAREERS',
     'CUSTOMER SERVICE'
   ]
+
   return (
     <div>
       <div className={style.first_Container}>
@@ -42,13 +46,23 @@ const Footer = () => {
           <Routes />
         </div>
         <div className={style.footerDescription}>
-          {footerDescription.map(item=>{
-            return (<li>{item}</li>)
+          {footerDescription.map(item => {
+            return <li>{item}</li>
           })}
+          <span>
+            <FacebookIcon
+              fontSize='small'
+              style={{ marginLeft: '18vw', marginRight: '1vw' }}
+            />
+            <TwitterIcon fontSize='small' style={{ marginRight: '1vw' }} />
+            <YouTubeIcon fontSize='small' />
+          </span>
         </div>
       </div>
 
-      <div className={style.Footer_third_container}></div>
+      <div className={style.Footer_third_container}>
+      © 2021 Le Travenues Technology Pvt. Ltd. India. All brands are trademarks of their respective owners.
+      </div>
     </div>
   )
 }
