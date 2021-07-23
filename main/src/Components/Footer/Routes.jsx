@@ -12,19 +12,19 @@ const Routes = () => {
     <div>
      
       <Switch>
-        <Route path="/busbooking">
+        <Route exact path="/bus" >
           <Busbooking />
         </Route>
-        <Route path="/popular_opp">
+        <Route exact path="/popular_opp">
           <PopularBusOpp />
         </Route>
-        <Route path="/popular_bus">
+        <Route exact path="/popular_bus">
           <PopularBusRoutes />
         </Route>
-        <Route path="/top_bus">
+        <Route exact path="/top_bus">
           <TopBusRoutes />
         </Route>
-        <Route path="/trading_bus">
+        <Route exact path="/trading_bus">
           <TradingBusRoutes />
         </Route>
       </Switch>

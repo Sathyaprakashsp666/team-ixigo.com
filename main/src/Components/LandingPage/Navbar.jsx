@@ -3,21 +3,21 @@ import { useDispatch } from "react-redux";
 // import { Link } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { CgArrowsExchange } from 'react-icons/cg'
+import { CgArrowsExchange } from "react-icons/cg";
 import { FaUserCircle } from "react-icons/fa";
 import TransitionsModal from "./LoginModal";
 import { getRouteBuses } from "../../Redux/FetchBuses/action";
 
-
-
-
 const Navbar = () => {
-  const [from, setFrom] = useState("")
-  const [to, setTo] = useState("")
-  const dispatch = useDispatch()
-  function handleClick(){
-    console.log(1)
-    dispatch(getRouteBuses(from, to))
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+  const dispatch = useDispatch();
+
+  function handleClick() {
+    console.log(1);
+    dispatch(getRouteBuses(from, to));
+    setFrom("");
+    setTo("");
   }
   return (
     <div className="navbar__cont">
@@ -57,7 +57,7 @@ const Navbar = () => {
         <div>
           <Link to="">
             <div className="navbar__profilePic">
-              {/* <TransitionsModal img={<FaUserCircle size='2rem'/>} /> */}
+              <TransitionsModal img={<FaUserCircle size='2rem'/>} />
             </div>
           </Link>
         </div>
@@ -79,24 +79,32 @@ const Navbar = () => {
       <div className="navbar__searchCont">
         <div>
           <div className="navbar__text">From</div>
-          <div className="navbar___input" value={from} onChange={(e) => setFrom(e.target.value)}>
-            <input type="text" />
+          <div className="navbar___input">
+            <input
+              type="text"
+              value={from}
+              onChange={(e) => setFrom(e.target.value)}
+            />
             <button>X</button>
            
-            {/* <CgArrowsExchange size="2rem" /> */}
+            <CgArrowsExchange size="2rem" />
           </div>
         </div>
         <div>
           <div className="navbar__text">To</div>
           <div className="navbar___input">
-            <input type="text" value={to} onChange={(e) => setTo(e.target.value)} />
+            <input
+              type="text"
+              value={to}
+              onChange={(e) => setTo(e.target.value)}
+            />
             <button>X</button>
           </div>
         </div>
         <div>
           <div className="navbar__text">Date</div>
           <div className="navbar___input">
-            {/* <input type='date' /> */}
+            <input type='date' />
             <input type="text" />
           </div>
         </div>
