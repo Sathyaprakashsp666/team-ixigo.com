@@ -1,0 +1,130 @@
+.card_container{
+    background: #ffffff;
+    margin-left: 52px;
+    margin-right: 400px;
+    margin-top: 30px;
+    display: flex;
+}
+
+.bus_type_container{
+    display: flex;
+    margin: 20px;
+    margin-bottom: 12px;
+    gap: 20px;
+}
+
+.bus_type_container div:nth-child(2){
+    display: flex;
+    gap: 4px;
+}
+
+.bus_timings_container{
+    display: flex;
+    margin-left: 20px;
+}
+
+.departure_time{
+    font-size: 24px;
+    font-weight: 600;
+    padding: 5px;
+    padding-top: 10px;
+    padding-left: 0px;
+}
+
+.arrival_time{
+    font-size: 24px;
+    font-weight: 600;
+    padding: 5px;
+    padding-top: 10px;
+    padding-left: 0px;
+}
+
+.travel_time div:nth-child(1){
+    max-width: fit-content;
+    margin: auto;
+    font-size: 14px;
+    color: #a7a4a4
+}
+
+.travel_time div:nth-child(2){
+    height: 20px;
+    width: 350px;
+}
+
+.travel_time div:nth-child(2) img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.bus_name{
+    font-size: 14px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.card_container_left_box{
+    width: 600px
+}
+
+.card_container_right_box{
+    width: 300px;
+    margin-left: 100px
+}
+
+.start_from_container{
+    text-align: right;
+    font-size: 12px;
+    color: #838383;
+    margin-top: 8px;
+    margin-right: 20px;
+}
+
+.price_container{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+    margin-top: 8px;
+    margin-left: 20px;
+}
+
+.select_button{
+    font-size: 18px;
+    font-weight: bold;
+    width: 270px;
+    margin-left: 12px;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #ec5c35;
+}
+
+.seats_left_container{
+    text-align: center;
+    font-size: 14px;
+    color: #ec5c35;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.get_container{
+    color: #ec5c35;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.seat_price_container{
+    display: flex;
+    gap: 7px
+}
+
+.seat_price_container div:nth-child(1){
+    color: #656565;
+    font-size: 15px;
+}
+
+.seat_price_container div:nth-child(2){
+    font-weight: 600;
+}
