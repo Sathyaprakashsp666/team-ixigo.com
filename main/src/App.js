@@ -7,6 +7,7 @@ function App() {
   return (
     <div>
       <Routes />
+      <div style={{ marginTop: "8vh" }}></div>
       <MiddlePart />
       <Footer />
     </div>
