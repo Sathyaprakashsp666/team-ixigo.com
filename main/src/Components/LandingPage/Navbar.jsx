@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 // import { Link } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./Navbar.css";
 import { CgArrowsExchange } from "react-icons/cg";
 import { FaUserCircle } from "react-icons/fa";
@@ -109,7 +109,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar__searchBtn">
-          <button onClick={handleClick}>Search</button>
+          <Link to="/search"><button onClick={handleClick}>Search</button></Link>
         </div>
       </div>
       <div className="navbar__offerDiv">
