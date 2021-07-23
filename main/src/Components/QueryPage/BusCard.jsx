@@ -3,7 +3,6 @@ import "./BusCard.css"
 
 
 export const BusCard = ({data}) => {
-    console.log(data)
     return (
         <div className="card_container" >
             <div className="card_container_left_box">
