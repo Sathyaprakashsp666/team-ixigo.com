@@ -16,7 +16,7 @@ const Navbar = () => {
   const [to, setTo] = useState("")
   const dispatch = useDispatch()
   function handleClick(){
-    console.log(1)
+  
     dispatch(getRouteBuses(from, to))
   }
   return (
@@ -57,7 +57,7 @@ const Navbar = () => {
         <div>
           <Link to="">
             <div className="navbar__profilePic">
-              {/* <TransitionsModal img={<FaUserCircle size='2rem'/>} /> */}
+              <TransitionsModal img={<FaUserCircle size='2rem'/>} />
             </div>
           </Link>
         </div>
@@ -83,7 +83,7 @@ const Navbar = () => {
             <input type="text" />
             <button>X</button>
            
-            {/* <CgArrowsExchange size="2rem" /> */}
+            <CgArrowsExchange size="2rem" />
           </div>
         </div>
         <div>
@@ -96,7 +96,7 @@ const Navbar = () => {
         <div>
           <div className="navbar__text">Date</div>
           <div className="navbar___input">
-            {/* <input type='date' /> */}
+            <input type='date' />
             <input type="text" />
           </div>
         </div>
