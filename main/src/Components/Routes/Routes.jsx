@@ -1,9 +1,11 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import Footer from "../Footer/Footer";
 import LandingPage from "../LandingPage/LandingPage";
+import Navbar from "../LandingPage/Navbar";
 import { QueryPage } from "../QueryPage/QueryPage";
 
-const Rotes = () => {
+const Routes = () => {
   return (
     <div>
       <Switch>
@@ -18,4 +20,4 @@ const Rotes = () => {
   );
 };
 
-export default Rotes;
+export default Routes;

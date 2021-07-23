@@ -9,9 +9,9 @@ const routeSchema = new Schema({
   buses: [
     {
       type: Schema.Types.ObjectId,
-      ref: Bus,
+      ref: 'bus',
     },
   ],
 });
 
-module.exports = model("routes", routeSchema);
+module.exports = model("route", routeSchema);

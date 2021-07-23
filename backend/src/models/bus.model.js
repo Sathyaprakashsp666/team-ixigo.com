@@ -24,4 +24,4 @@ const busSchema = new Schema(
   }
 );
 
-module.exports = model("bus-collections", busSchema);
+module.exports = model("bus", busSchema);
