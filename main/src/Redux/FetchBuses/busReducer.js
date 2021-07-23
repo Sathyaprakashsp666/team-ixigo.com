@@ -19,7 +19,7 @@ const busReducer = (state = initState, {type, payload}) => {
                 ...state,
                 isLoading: false,
                 isError: false,
-                busData: payload
+                busData: [...state.busData, payload]
             }
         case GET_ONE_ROUTE_FAILURE:
             return {

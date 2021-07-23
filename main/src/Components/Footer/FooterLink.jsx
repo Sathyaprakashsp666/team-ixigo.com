@@ -7,7 +7,7 @@ const FooterButton = () => {
     <div>
       <NavLink
         className={style.link}
-        to='/busbooking'
+        to='/bus'
         activeStyle={{
           color: 'orangered',
           borderBottom: '2px solid orangered'
