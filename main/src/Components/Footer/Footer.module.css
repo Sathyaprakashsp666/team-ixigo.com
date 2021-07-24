@@ -38,13 +38,14 @@ span {
 .email_input {
   float: left;
   margin-left: 32vw;
-  margin-top: 50px;
+  margin-top: 5.8vh;
   font-size: 18px;
+  width: 200px;
 
   background-color: #550f5d;
   border: none;
   border-bottom: 1px solid #fff;
-  padding: 2px 5px;
+  padding: 2px 7px;
   color: #fff;
 }
 .email_button {
