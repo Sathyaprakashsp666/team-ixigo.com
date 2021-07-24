@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import LandingPage from "../LandingPage/LandingPage";
 import Navbar from "../LandingPage/Navbar";
+import PaymentPage from "../PaymentPage/PaymentPage";
 import { QueryPage } from "../QueryPage/QueryPage";
 
 const Routes = () => {
@@ -12,8 +13,11 @@ const Routes = () => {
         <Route path="/" exact>
           <LandingPage />
         </Route>
-        <Route path="/search" >
+        <Route path="/search">
           <QueryPage />
+        </Route>
+        <Route path="/payment">
+          <PaymentPage />
         </Route>
       </Switch>
     </div>

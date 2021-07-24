@@ -9,7 +9,7 @@ const routeSchema = new Schema({
   buses: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'bus',
+      ref: 'bus-collection',
     },
   ],
 });
