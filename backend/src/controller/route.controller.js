@@ -11,5 +11,5 @@ exports.getRoutes = async (req, res) => {
     .populate("buses")
     .lean()
     .exec();
-  res.status(200).json({ data: bus });
+  res.status(200).json(bus[0]);
 };

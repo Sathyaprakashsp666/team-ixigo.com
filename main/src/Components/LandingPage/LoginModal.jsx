@@ -57,7 +57,7 @@ export default function TransitionsModal({ img }) {
               <div className="modal__right">
                 <div className="modal__signup">
                   <p>
-                    Don't have an account <span>SIGN UP</span>
+                    Don't have an account SIGN UP
                   </p>
                 </div>
                 <div className="modal__login">
@@ -81,14 +81,14 @@ export default function TransitionsModal({ img }) {
                 <div className="modal__policy">
                   <p>
                     By logging in, I understand & agree to ixigo terms of use
-                    and <br/><span>privacy policy</span>
+                    and <br/>privacy policy
                   </p>
                 </div>
                 <div>
                   <p className="modal__policy">
                     This site is protected by reCAPTCHA and the Google
-                    <span>Privacy<br/> Policy </span>and
-                    <span>Terms of Service </span>apply.
+                    Privacy<br/> Policy and
+                    Terms of Service apply.
                   </p>
                 </div>
               </div>

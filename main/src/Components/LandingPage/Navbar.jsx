@@ -110,7 +110,6 @@ const Navbar = () => {
           <div className="navbar__text">Date</div>
           <div className="navbar___input">
             <input type='date' />
-            <input type="text" />
           </div>
         </div>
         <div className="navbar__searchBtn">
