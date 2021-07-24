@@ -64,12 +64,17 @@
 }
 
 .card_container_left_box{
-    width: 600px
+    width: 610px;
+    border-right: 1px dotted rgb(218, 215, 215);
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .card_container_right_box{
     width: 300px;
-    margin-left: 100px
+    margin-left: 73px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .start_from_container{
