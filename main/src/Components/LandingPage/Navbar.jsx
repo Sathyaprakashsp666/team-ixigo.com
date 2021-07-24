@@ -6,16 +6,21 @@ import "./Navbar.css";
 import { CgArrowsExchange } from "react-icons/cg";
 import { FaUserCircle } from "react-icons/fa";
 import TransitionsModal from "./LoginModal";
-import { getRouteBuses } from "../../Redux/FetchBuses/action";
+import { getRouteBuses } from './../../Redux/FetchBuses/action';
+
+
+
 
 const Navbar = () => {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const dispatch = useDispatch();
+  
+  
 
   function handleClick() {
     console.log(1);
-    dispatch(getRouteBuses(from, to));
+    dispatch(getRouteBuses(from,to));
     setFrom("");
     setTo("");
   }
