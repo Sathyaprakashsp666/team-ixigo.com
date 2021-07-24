@@ -10,7 +10,7 @@ import CallIcon from "@material-ui/icons/Call";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,28 +30,26 @@ const PaymentPage = () => {
   const [mobile, setMobile] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [checked, setChecked] = React.useState(true);
-
   const [fair, setFair] = React.useState(true);
 
   const handleChange = (event) => {
     setFname(event.target.value);
     setLname(event.target.value);
     setAge(event.target.value);
-    setGender(event.target.value);
   };
 
-  const handleChange2 = (event) => {
+  const handleChange3 = (event) => {
     setMobile(event.target.value);
     setEmail(event.target.value);
+  };
+  const handleChange2 = (event) => {
+    setGender(event.target.value);
   };
 
   const handleFair = () => {
     setFair(!fair);
   };
 
-  const handleCheck = (event) => {
-    setChecked(event.target.checked);
-  };
   return (
     <>
       <div className="payment__header">
@@ -69,7 +67,10 @@ const PaymentPage = () => {
       <div className="payment__cont">
         <div className="payment__left">
           {/* booking details */}
-          <div className="payment__bookingDetails"></div>
+          <div className="payment__bookingDetails">
+            <div></div>
+            <div></div>
+          </div>
           {/* traveller form */}
           <div className="payment__travellerForm">
             <div className="payment__travellerForm_1">
@@ -108,9 +109,9 @@ const PaymentPage = () => {
                 value={age}
                 onChange={handleChange}
                 placeholder="Enter age"
-              />{" "}
+              />
               &nbsp;
-              <FormControl className={classes.formControl}>
+              <FormControl>
                 <InputLabel
                   shrink
                   id="demo-simple-select-placeholder-label-label"
@@ -121,7 +122,7 @@ const PaymentPage = () => {
                   labelId="demo-simple-select-placeholder-label-label"
                   id="demo-simple-select-placeholder-label"
                   value={gender}
-                  onChange={handleChange}
+                  onChange={handleChange2}
                   displayEmpty
                   className={classes.selectEmpty}
                 >
@@ -139,8 +140,8 @@ const PaymentPage = () => {
           {/* contact form */}
           <div className="payment__contactForm">
             <div className="payment__contactForm1">
-              <div>Contact Details</div>
-              <div>Your ticket SMS will be sent to this number and email</div>
+              <div className="payment__contactformTitle">Contact Details&nbsp;</div>
+              <div className="payment__contactformText">Your ticket SMS will be sent to this number and email</div>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <CallIcon color="primary" />
@@ -150,7 +151,7 @@ const PaymentPage = () => {
                 multiline
                 maxRows={4}
                 value={mobile}
-                onChange={handleChange2}
+                onChange={handleChange3}
                 placeholder="Enter mobile number"
               />
               &nbsp;
@@ -161,7 +162,7 @@ const PaymentPage = () => {
                 multiline
                 maxRows={4}
                 value={email}
-                onChange={handleChange2}
+                onChange={handleChange3}
                 placeholder="Enter your email ID"
               />
               &nbsp;
@@ -194,9 +195,11 @@ const PaymentPage = () => {
               <p className="orangered">KNOW MORE</p>
             </div>
 
-            <div className='payment__couponCont'>
+            <div className="payment__couponCont">
               <p className="orangered">Have coupon code .?</p>
-              <p> < ChevronRightIcon color="secondary"/>  </p>
+              <p>
+                <ChevronRightIcon color="secondary" />
+              </p>
             </div>
           </div>
 

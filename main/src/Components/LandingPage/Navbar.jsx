@@ -113,7 +113,7 @@ const Navbar = () => {
       </div>
       <div className="navbar__offerDiv">
         <img
-          src="https://images.ixigo.com/image/upload/c847b7c6204ca0edf9cf60cca354a931-spkas.png"
+          src="https://images.ixigo.com/image/upload/ab8b26de34dbc46de922bd9b16c9e202-nopfl.png"
           alt=""
         />
       </div>
