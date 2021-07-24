@@ -10,8 +10,7 @@ import CallIcon from "@material-ui/icons/Call";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import Checkbox from "@material-ui/core/Checkbox";
-import Search from "../QueryPage/Search";
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -195,8 +194,9 @@ const PaymentPage = () => {
               <p className="orangered">KNOW MORE</p>
             </div>
 
-            <div>
+            <div className='payment__couponCont'>
               <p className="orangered">Have coupon code .?</p>
+              <p> < ChevronRightIcon color="secondary"/>  </p>
             </div>
           </div>
 
@@ -239,12 +239,17 @@ const PaymentPage = () => {
               </div>
             )}
           </div>
+          <div className="payment__policy">
+            <label>
+              <input type="checkbox" /> &nbsp;I confirm that I have read,
+              understood and agree with the Privacy Policy and Terms of use
+            </label>
+          </div>
           <div>
-           <inut type="checkbox" onChange={handleCheck} />
+            <button className="payment__button">PAY SECURELY</button>
           </div>
         </div>
       </div>
-      <Search/>
     </>
   );
 };
