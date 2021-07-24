@@ -10,6 +10,8 @@ import CallIcon from "@material-ui/icons/Call";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Checkbox from "@material-ui/core/Checkbox";
+import Search from "../QueryPage/Search";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,8 +30,9 @@ const PaymentPage = () => {
   const [gender, setGender] = React.useState("");
   const [mobile, setMobile] = React.useState("");
   const [email, setEmail] = React.useState("");
+  const [checked, setChecked] = React.useState(true);
 
-  const [fair, setFair] = React.useState(false);
+  const [fair, setFair] = React.useState(true);
 
   const handleChange = (event) => {
     setFname(event.target.value);
@@ -45,6 +48,10 @@ const PaymentPage = () => {
 
   const handleFair = () => {
     setFair(!fair);
+  };
+
+  const handleCheck = (event) => {
+    setChecked(event.target.checked);
   };
   return (
     <>
@@ -175,14 +182,14 @@ const PaymentPage = () => {
             </div>
 
             <div className="payment__checkbox">
-              <input type="radio" id="html" name="fav_language" value="HTML" /> {" "}
+              <input type="radio" id="html" name="fav_language" value="HTML" />
               <label for="html">BCULT</label>
               <p>get FREE 21 day trail to cure.fit live</p>
               <p className="orangered">KNOW MORE</p>
             </div>
 
             <div className="payment__checkbox">
-              <input type="radio" id="html" name="fav_language" value="HTML" /> {" "}
+              <input type="radio" id="html" name="fav_language" value="HTML" />
               <label for="html">BUS500</label>
               <p>Get Rs37 ixigo money on this booking</p>
               <p className="orangered">KNOW MORE</p>
@@ -209,31 +216,35 @@ const PaymentPage = () => {
             {fair ? (
               <>
                 <div className="payment__cal">
-                  <p>Bus Fare</p>&nbsp;
-                  <p>Rs. 766</p>
+                  <p className="payment__gray">&nbsp; Bus Fare</p>&nbsp;
+                  <p>&nbsp;₹ 766</p>
                 </div>
                 <div className="payment__cal">
-                  <p>Texes and fees</p>
-                  <p>Rs. 766</p>
+                  <p className="payment__gray">Texes and fees</p>
+                  <p>&nbsp; &nbsp;&nbsp;&nbsp; ₹ 766</p>
                 </div>
                 <div className="payment__cal">
-                  <p> Promotinal discount</p>
-                  <p> - 766</p>
+                  <p className="payment__green"> Promotinal discount</p>
+                  <p className="payment__green"> &nbsp; -₹ 766</p>
                 </div>
                 <div className="payment__cal">
-                  <h3> Promotinal discount</h3>
-                  <h3>- 766</h3>
+                  <h4 className="payment__orange"> You Pay</h4>
+                  <h4 className="payment__orange"> ₹ 766</h4>
                 </div>
               </>
             ) : (
               <div>
-                <h3>Payable amount</h3>
-                <h3>768</h3>
+                <h5>Payable amount</h5>
+                <h5> ₹ 768</h5>
               </div>
             )}
           </div>
+          <div>
+           <inut type="checkbox" onChange={handleCheck} />
+          </div>
         </div>
       </div>
+      <Search/>
     </>
   );
 };

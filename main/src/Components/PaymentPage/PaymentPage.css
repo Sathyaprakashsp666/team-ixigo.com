@@ -125,7 +125,7 @@ margin-left: 25px;
     display: flex;
     flex-direction: column;
     width: 90%;
-    height: 250px;
+    min-height: 150px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-top: 30px;
 
@@ -147,4 +147,13 @@ margin-left: 25px;
     display: flex;
     justify-content:space-around ;
     align-items: center;
+}
+.payment__gray{
+    color: gray;
+}
+.payment__green{
+    color: green;
+}
+.payment__orange{
+    color: orangered;
 }
