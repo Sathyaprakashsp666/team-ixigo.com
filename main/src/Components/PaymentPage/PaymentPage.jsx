@@ -6,9 +6,10 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import CallIcon from '@material-ui/icons/Call';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-
+import CallIcon from "@material-ui/icons/Call";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +29,8 @@ const PaymentPage = () => {
   const [mobile, setMobile] = React.useState("");
   const [email, setEmail] = React.useState("");
 
+  const [fair, setFair] = React.useState(false);
+
   const handleChange = (event) => {
     setFname(event.target.value);
     setLname(event.target.value);
@@ -38,6 +41,10 @@ const PaymentPage = () => {
   const handleChange2 = (event) => {
     setMobile(event.target.value);
     setEmail(event.target.value);
+  };
+
+  const handleFair = () => {
+    setFair(!fair);
   };
   return (
     <>
@@ -129,8 +136,8 @@ const PaymentPage = () => {
               <div>Contact Details</div>
               <div>Your ticket SMS will be sent to this number and email</div>
             </div>
-            <div style={{display:"flex" , alignItems:"center",gap:"10px"}}>
-                <CallIcon color="primary"/>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <CallIcon color="primary" />
               <TextField
                 id="standard-multiline-flexible"
                 label="Mobile"
@@ -141,7 +148,7 @@ const PaymentPage = () => {
                 placeholder="Enter mobile number"
               />
               &nbsp;
-              <MailOutlineIcon color="primary"/>
+              <MailOutlineIcon color="primary" />
               <TextField
                 id="standard-multiline-flexible"
                 label="Email"
@@ -155,7 +162,77 @@ const PaymentPage = () => {
             </div>
           </div>
         </div>
-        <div className="payment__right"></div>
+        <div className="payment__right">
+          {/* offers container */}
+          <div className="payment__offerCont">
+            <div className="payment__offerContTitle">Offers</div>
+            <div className="payment__checkbox">
+              <input type="radio" id="html" name="fav_language" value="HTML" /> {" "}
+              <label for="html">GAANA</label>
+              <p>Get 3 months of gaana subscription</p>
+              <p>FREE</p>
+              <p className="orangered">KNOW MORE</p>
+            </div>
+
+            <div className="payment__checkbox">
+              <input type="radio" id="html" name="fav_language" value="HTML" /> {" "}
+              <label for="html">BCULT</label>
+              <p>get FREE 21 day trail to cure.fit live</p>
+              <p className="orangered">KNOW MORE</p>
+            </div>
+
+            <div className="payment__checkbox">
+              <input type="radio" id="html" name="fav_language" value="HTML" /> {" "}
+              <label for="html">BUS500</label>
+              <p>Get Rs37 ixigo money on this booking</p>
+              <p className="orangered">KNOW MORE</p>
+            </div>
+
+            <div>
+              <p className="orangered">Have coupon code .?</p>
+            </div>
+          </div>
+
+          {/* fair summary container */}
+          <div className="payement_fair">
+            <div className="payement_fairSummary">
+              Fare Summary (1 traveller)
+              <button onClick={handleFair}>
+                {fair ? (
+                  <KeyboardArrowUpIcon fontSize="large" />
+                ) : (
+                  <ExpandMoreIcon fontSize="large" />
+                )}
+              </button>
+            </div>
+
+            {fair ? (
+              <>
+                <div className="payment__cal">
+                  <p>Bus Fare</p>&nbsp;
+                  <p>Rs. 766</p>
+                </div>
+                <div className="payment__cal">
+                  <p>Texes and fees</p>
+                  <p>Rs. 766</p>
+                </div>
+                <div className="payment__cal">
+                  <p> Promotinal discount</p>
+                  <p> - 766</p>
+                </div>
+                <div className="payment__cal">
+                  <h3> Promotinal discount</h3>
+                  <h3>- 766</h3>
+                </div>
+              </>
+            ) : (
+              <div>
+                <h3>Payable amount</h3>
+                <h3>768</h3>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );
