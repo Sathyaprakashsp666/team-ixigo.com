@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CgArrowsExchange } from "react-icons/cg";
 import { Link } from "react-router-dom";
+import "./Search.css"
 
 const Search = () => {
   const [from, setFrom] = useState("");
@@ -36,7 +37,7 @@ const Search = () => {
             />
             <button>X</button>
           </div>
-        </div>
+        </div>&nbsp;&nbsp;&nbsp;
         <div>
           <div className="navbar__text">Date</div>
           <div className="navbar___input">
