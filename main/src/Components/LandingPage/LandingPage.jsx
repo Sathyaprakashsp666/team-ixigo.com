@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 const LandingPage = () => {
   return (
     <div>
-      <Navbar/>
+      <Navbar/><br/><br/><br/><br/><br/>
       <MiddlePart />
       <Footer/>
     </div>
