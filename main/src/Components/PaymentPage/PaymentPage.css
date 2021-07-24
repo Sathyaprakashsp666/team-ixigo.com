@@ -45,7 +45,13 @@
 .payment__bookingDetails {
   height: 214px;
   width: 100%;
-  background-color: #721053;
+  /* background-color: #721053; */
+  display: flex;
+}
+.payment__bookingDetails > div {
+  border: 1px solid blue;
+  width: 50%;
+  padding: 10px;
 }
 
 .payment__travellerForm {
@@ -81,6 +87,12 @@
   align-items: center;
   padding: 10px;
   background-color: lightgray;
+}
+.payment__contactformTitle {
+  font-size: 16px;
+}
+.payment__contactformText {
+  color: gray;
 }
 
 .payment__offerCont {
