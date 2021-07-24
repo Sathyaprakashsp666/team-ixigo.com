@@ -1,0 +1,80 @@
+.payment__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  height: 67px;
+  margin: auto;
+}
+
+.payment__header img {
+  width: 50%;
+}
+
+.payment__status {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  background-color: #721053;
+  margin-bottom: 40px;
+}
+
+.payment__cont {
+  display: flex;
+  width: 100%;
+  min-height: 700px;
+}
+
+.payment__left {
+  width: 70%;
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 30px;
+}
+.payment__right {
+  width: 30%;
+  border: 1px solid red;
+}
+
+.payment__bookingDetails {
+  height: 214px;
+  width: 100%;
+  background-color: #721053;
+}
+
+.payment__travellerForm {
+  height: 195px;
+  width: 100%;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   padding: 20px;
+}
+.payment__travellerForm_1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: lightgray;
+}
+
+.payment__contactForm {
+  height: 148px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  gap: 20px;
+  padding: 20px;
+}
+
+.payment__contactForm1 {
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  padding: 10px;
+  background-color: lightgray;
+}
