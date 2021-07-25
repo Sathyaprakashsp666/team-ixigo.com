@@ -249,3 +249,7 @@
   margin-left: 400px;
   margin-top: 10px;
 }
+
+.payment__redWarning{
+  color: red;
+}

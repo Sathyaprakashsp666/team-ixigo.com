@@ -9,6 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -26,14 +27,24 @@ const useStyles = makeStyles((theme) => ({
 const PaymentGateway = () => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const history = useHistory();
 
   const handleOpen = () => {
     setOpen(true);
+    setInterval(() => {
+      history.push("/");
+    }, 2000);
   };
 
   const handleClose = () => {
     setOpen(false);
   };
+
+  //local storage
+  const singleBusdata = localStorage.getItem("currentBusData");
+  let { discount, seatFare } = JSON.parse(singleBusdata);
+  let taxes = (seatFare / 100) * 2;
+  let total = Math.floor(seatFare - taxes - discount);
   return (
     <>
       <div className="gateway__header">
@@ -52,7 +63,7 @@ const PaymentGateway = () => {
       <div className="gateway__cont">
         <div className="gateway__title">
           <p>AMOUNT TO PAY</p>
-          <h4> ₹ 564&nbsp; &nbsp; </h4>
+          <h4> ₹ {total}&nbsp; &nbsp; </h4>
         </div>
         <div className="gateway__upiCont">
           <div className="gateway__upiContLeft">

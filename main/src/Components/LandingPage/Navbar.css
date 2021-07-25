@@ -117,19 +117,21 @@
   /* border: 1px solid green; */
 }
 .navbar__offerDiv {
-  height:140px;
+  height: 140px;
   width: 100vw;
   /* border: 1px solid red; */
   margin-top: 140px;
-  background-color:  rgb(235, 231, 231);
-
+  background-color: rgb(235, 231, 231);
 }
-.navbar__offerDiv>img{
+.navbar__offerDiv > img {
   margin-left: 8%;
   margin-top: -35px;
   box-shadow: 2px 2px 5px #b1afaf;
 }
 
-.round{
-    border-radius: 50%;
+.round {
+  border-radius: 50%;
+}
+.navbar__red{
+  color: red;
 }

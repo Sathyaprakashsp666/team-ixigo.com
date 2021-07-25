@@ -40,6 +40,7 @@ const PaymentPage = () => {
   const [fair, setFair] = React.useState(true);
 
   const [state, setState] = React.useState(false);
+  const [valid, setValid] = React.useState(false);
 
   const history = useHistory();
 
@@ -67,14 +68,52 @@ const PaymentPage = () => {
     setFair(!fair);
   };
 
+  // console.log(fname, lname, age, gender, mobile, email);
   const handlePay = () => {
-    history.push("/payment/gateway");
+    if (!fname || !lname || !age) {
+      setState(true);
+    }
+    if (!mobile && !email) {
+      setValid(true);
+    }
+
+    const payload = {
+      FirstName: fname,
+      LastName: lname,
+      Age: age,
+      Gender: gender,
+      Mobile: mobile,
+      Email: email,
+    };
+    if (
+      fname.length &&
+      lname.length &&
+      age.length &&
+      mobile.length &&
+      email.length >= 1
+    ) {
+      history.push("/payment/gateway");
+    }
+    // console.log(payload)
+    localStorage.setItem("userDetails", JSON.stringify(payload));
   };
   const modify = () => {
     history.push("/search");
   };
 
-  // console.log(fname, lname, age, gender);
+  const singleBusdata = localStorage.getItem("currentBusData");
+  let {
+    AC,
+    arrivalTime,
+    busTypeName,
+    discount,
+    seatFare,
+    startTime,
+    travelTime,
+    travelerAgentName,
+  } = JSON.parse(singleBusdata);
+  let taxes = (seatFare / 100) * 2;
+  let total = Math.floor(seatFare - taxes - discount);
 
   return (
     <>
@@ -90,7 +129,7 @@ const PaymentPage = () => {
         </div>
       </div>
       <div className="payment__status">
-        <HorizontalLabelPositionBelowStepper/>
+        <HorizontalLabelPositionBelowStepper />
       </div>
       <div className="payment__cont">
         <div className="payment__left">
@@ -98,25 +137,25 @@ const PaymentPage = () => {
           <div className="payment__bookingDetails">
             <div className="payment__bookingDetailsCont">
               <div>
-                <h3>Ideal Travels</h3>
+                <h3>{travelerAgentName}</h3>
                 <AcUnitIcon fontSize="small" />
-                <h3>AC</h3>
+                <h3>{AC ? "AC" : "NONAC"}</h3>
               </div>
               <div>
-                <h3>22.21</h3>
+                <h3>{startTime}</h3>
                 <img
                   src="https://cdn.kastatic.org/ka-perseus-graphie/a26f5a5d1677c840eb556ced719307a3de52c26f.png"
                   alt="line"
                   width="170px"
                 />
-                <h3>35.5</h3>
+                <h3>{arrivalTime}</h3>
               </div>
               <div>
-                <p>Non sleeper</p>
+                <p>{busTypeName}</p>
               </div>
             </div>
             <div className="payment__bookingDetailsContR">
-              <div className='payment__points'>
+              <div className="payment__points">
                 <p>Pickup Point</p>
                 <p>Dropoff Point</p>
               </div>
@@ -201,6 +240,13 @@ const PaymentPage = () => {
               </FormControl>
               &nbsp;
             </div>
+            <div>
+              {state && (
+                <p className="payment__redWarning">
+                  Please fill the required credentials
+                </p>
+              )}
+            </div>
           </div>
           {/* contact form */}
           <div className="payment__contactForm">
@@ -235,6 +281,11 @@ const PaymentPage = () => {
                 placeholder="Enter your email ID"
               />
               &nbsp;
+            </div>
+            <div>
+              {valid && (
+                <p className="payment__redWarning">Please fill contact form</p>
+              )}
             </div>
           </div>
         </div>
@@ -289,32 +340,33 @@ const PaymentPage = () => {
               <>
                 <div className="payment__cal">
                   <p className="payment__gray">&nbsp; Bus Fare</p>&nbsp;
-                  <p>&nbsp;₹ 766</p>
+                  <p>&nbsp;₹ {seatFare}</p>
                 </div>
                 <div className="payment__cal">
                   <p className="payment__gray">Texes and fees</p>
-                  <p>&nbsp; &nbsp;&nbsp;&nbsp; ₹ 766</p>
+                  <p>&nbsp; &nbsp;&nbsp;&nbsp; ₹ {taxes} </p>
                 </div>
                 <div className="payment__cal">
                   <p className="payment__green"> Promotinal discount</p>
-                  <p className="payment__green"> &nbsp; -₹ 766</p>
+                  <p className="payment__green"> &nbsp; -₹ {discount}</p>
                 </div>
                 <div className="payment__cal">
                   <h4 className="payment__orange"> You Pay</h4>
-                  <h4 className="payment__orange"> ₹ 766</h4>
+                  <h4 className="payment__orange"> ₹ {total}</h4>
                 </div>
               </>
             ) : (
               <div>
                 <h5>Payable amount</h5>
-                <h5> ₹ 768</h5>
+                <h5> ₹ {total}</h5>
               </div>
             )}
           </div>
           <div className="payment__policy">
             <label>
-              <input type="checkbox" /> &nbsp;I confirm that I have read,
-              understood and agree with the Privacy Policy and Terms of use
+              <input type="checkbox"/>
+              &nbsp;I confirm that I have read, understood and agree with the
+              Privacy Policy and Terms of use
             </label>
           </div>
           <div>
