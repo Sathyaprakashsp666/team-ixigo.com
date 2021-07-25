@@ -7,7 +7,7 @@ import TopBusRoutes from './TopBusRoutes'
 import TradingBusRoutes from './TradingBusRoutes'
 import FooterLink from "./FooterLink"
 
-const Routes = () => {
+const FooterRoutes = () => {
   return (
     <div>
      
@@ -32,4 +32,4 @@ const Routes = () => {
   )
 }
 
-export default Routes
+export default FooterRoutes
