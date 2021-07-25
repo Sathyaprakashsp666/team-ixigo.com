@@ -40,6 +40,7 @@ const PaymentPage = () => {
   const [fair, setFair] = React.useState(true);
 
   const [state, setState] = React.useState(false);
+  const [valid, setValid] = React.useState(false);
 
   const history = useHistory();
 
@@ -69,7 +70,12 @@ const PaymentPage = () => {
 
   // console.log(fname, lname, age, gender, mobile, email);
   const handlePay = () => {
-    history.push("/payment/gateway");
+    if (!fname || !lname || !age) {
+      setState(true);
+    }
+    if (!mobile && !email) {
+      setValid(true);
+    }
 
     const payload = {
       FirstName: fname,
@@ -79,6 +85,15 @@ const PaymentPage = () => {
       Mobile: mobile,
       Email: email,
     };
+    if (
+      fname.length &&
+      lname.length &&
+      age.length &&
+      mobile.length &&
+      email.length >= 1
+    ) {
+      history.push("/payment/gateway");
+    }
     // console.log(payload)
     localStorage.setItem("userDetails", JSON.stringify(payload));
   };
@@ -225,6 +240,13 @@ const PaymentPage = () => {
               </FormControl>
               &nbsp;
             </div>
+            <div>
+              {state && (
+                <p className="payment__redWarning">
+                  Please fill the required credentials
+                </p>
+              )}
+            </div>
           </div>
           {/* contact form */}
           <div className="payment__contactForm">
@@ -259,6 +281,11 @@ const PaymentPage = () => {
                 placeholder="Enter your email ID"
               />
               &nbsp;
+            </div>
+            <div>
+              {valid && (
+                <p className="payment__redWarning">Please fill contact form</p>
+              )}
             </div>
           </div>
         </div>
@@ -337,8 +364,9 @@ const PaymentPage = () => {
           </div>
           <div className="payment__policy">
             <label>
-              <input type="checkbox" /> &nbsp;I confirm that I have read,
-              understood and agree with the Privacy Policy and Terms of use
+              <input type="checkbox"/>
+              &nbsp;I confirm that I have read, understood and agree with the
+              Privacy Policy and Terms of use
             </label>
           </div>
           <div>
