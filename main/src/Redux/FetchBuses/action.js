@@ -3,7 +3,6 @@ import {
   GET_ONE_ROUTE_REQUEST,
   GET_ONE_ROUTE_SUCCESS,
   GET_ONE_ROUTE_FAILURE,
-  GET_ONE_BUS_DATA,
 } from './actionTypes';
 
 const getOneRouteRequest = () => {
@@ -25,12 +24,6 @@ const getOneRouteFailure = () => {
   };
 };
 
-const getOneBusData = (payload) => {
-    return {
-        type: GET_ONE_BUS_DATA,
-        payload
-    }
-}
 
 const getRouteBuses = (from, to) => async (dispatch) => {
   dispatch(getOneRouteRequest())
@@ -45,17 +38,5 @@ const getRouteBuses = (from, to) => async (dispatch) => {
   }
 };
 
-const getBusOnId = (id) => async(dispatch) => {
-    dispatch(getOneRouteRequest())
-  try {
-    const data = await axios.get(
-      `http://localhost:7000/buses/search/${id}`
-    );
-
-    dispatch(getOneBusData(data.data));
-  } catch (err) {
-    console.log(err);
-  }
-}
 
 export { getRouteBuses };
