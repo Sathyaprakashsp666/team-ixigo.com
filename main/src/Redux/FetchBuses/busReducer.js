@@ -2,7 +2,6 @@ import {
   GET_ONE_ROUTE_REQUEST,
   GET_ONE_ROUTE_SUCCESS,
   GET_ONE_ROUTE_FAILURE,
-  GET_ONE_BUS_DATA,
 } from './actionTypes';
 
 const initState = {
@@ -29,12 +28,6 @@ const busReducer = (state = initState, { type, payload }) => {
         isLoading: false,
         isError: true,
       };
-    case GET_ONE_BUS_DATA:
-        return {
-            ...state,
-            isLoading: false,
-            currentBus: payload
-        }
     default:
       return state;
   }
