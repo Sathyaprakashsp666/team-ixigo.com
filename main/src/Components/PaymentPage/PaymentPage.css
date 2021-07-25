@@ -12,11 +12,14 @@
 }
 
 .payment__status {
-  display: flex;
-  width: 100%;
-  height: 70px;
+  /* display: flex; */
+  width: 95%;
+  height: 90px;
   background-color: #721053;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  color: #fff;
+  background: #721053;
+  background: -webkit-linear-gradient(45deg, #721053, #ad2e41);
 }
 
 .payment__cont {
@@ -36,28 +39,62 @@
 }
 .payment__right {
   width: 30%;
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   margin: 20px;
 }
 
 .payment__bookingDetails {
-  height: 214px;
+  min-height: 160px;
   width: 100%;
-  /* background-color: #721053; */
   display: flex;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.payment__bookingDetailsCont {
+  display: flex;
+  width: 100%;
+
+  flex-direction: column;
+}
+.payment__bookingDetailsCont > div {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  padding-left: 20px;
+}
+.payment__bookingDetailsContR > div {
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+  padding-left: 5px;
+  justify-content: space-between;
+  height: 50px;
+  padding-right: 50px;
 }
 .payment__bookingDetails > div {
-  border: 1px solid blue;
   width: 50%;
-  padding: 10px;
+}
+.payment__modify {
+  outline: none;
+  border: none;
+  color: orangered;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.payment__points p {
+  font-size: 16px;
+  font-weight: 600;
+}
+.payment__places p {
+  color: gray;
 }
 
 .payment__travellerForm {
   height: 195px;
   width: 100%;
-  /* background-color: aqua; */
   display: flex;
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -188,13 +225,13 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.gateway__flex_bg{
+.gateway__flex_bg {
   background-color: #fff;
 }
 
-.payment__footer{
+.payment__footer {
   display: flex;
-  background-color: #3A1248;
+  background-color: #3a1248;
   width: 100%;
   height: 50px;
 }
@@ -211,5 +248,4 @@
   display: flex;
   margin-left: 400px;
   margin-top: 10px;
-
 }

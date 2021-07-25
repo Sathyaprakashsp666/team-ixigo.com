@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import "./PaymentGateway.css";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import AccountBalanceWalletIcon from "@material-ui/icons/AccountBalanceWallet";
@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    // border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
@@ -38,19 +37,18 @@ const PaymentGateway = () => {
   return (
     <>
       <div className="gateway__header">
-        <Link to='/'>
-        <div>
-          <img
-            src="https://images.ixigo.com/image/upload/f_auto/8a178b024470af59d0e1387babf3d02c-imdac.png"
-            alt="ixigo"
-          />
-        </div>
+        <Link to="/">
+          <div>
+            <img
+              src="https://images.ixigo.com/image/upload/f_auto/8a178b024470af59d0e1387babf3d02c-imdac.png"
+              alt="ixigo"
+            />
+          </div>
         </Link>
         <div>
           <div>DP</div>
         </div>
       </div>
-
       <div className="gateway__cont">
         <div className="gateway__title">
           <p>AMOUNT TO PAY</p>
@@ -147,8 +145,10 @@ const PaymentGateway = () => {
                 alt=""
                 width="70px"
               />
-              <h3 className='gateway__modalGreen'>Payment Successful</h3>
-              <p className='gateway__modalGray'>Thank You! Your payment is complete</p>
+              <h3 className="gateway__modalGreen">Payment Successful</h3>
+              <p className="gateway__modalGray">
+                Thank You! Your payment is complete
+              </p>
             </div>
           </div>
         </Fade>

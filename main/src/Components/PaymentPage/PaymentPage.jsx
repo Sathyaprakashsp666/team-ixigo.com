@@ -16,6 +16,10 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import { useHistory } from "react-router";
 
+import AcUnitIcon from "@material-ui/icons/AcUnit";
+import HorizontalLinearStepper from "./Stepper";
+import HorizontalLabelPositionBelowStepper from "./Stepper";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
@@ -66,6 +70,9 @@ const PaymentPage = () => {
   const handlePay = () => {
     history.push("/payment/gateway");
   };
+  const modify = () => {
+    history.push("/search");
+  };
 
   // console.log(fname, lname, age, gender);
 
@@ -82,13 +89,52 @@ const PaymentPage = () => {
           <div>DP</div>
         </div>
       </div>
-      <div className="payment__status"></div>
+      <div className="payment__status">
+        <HorizontalLabelPositionBelowStepper/>
+      </div>
       <div className="payment__cont">
         <div className="payment__left">
           {/* booking details */}
           <div className="payment__bookingDetails">
-            <div></div>
-            <div></div>
+            <div className="payment__bookingDetailsCont">
+              <div>
+                <h3>Ideal Travels</h3>
+                <AcUnitIcon fontSize="small" />
+                <h3>AC</h3>
+              </div>
+              <div>
+                <h3>22.21</h3>
+                <img
+                  src="https://cdn.kastatic.org/ka-perseus-graphie/a26f5a5d1677c840eb556ced719307a3de52c26f.png"
+                  alt="line"
+                  width="170px"
+                />
+                <h3>35.5</h3>
+              </div>
+              <div>
+                <p>Non sleeper</p>
+              </div>
+            </div>
+            <div className="payment__bookingDetailsContR">
+              <div className='payment__points'>
+                <p>Pickup Point</p>
+                <p>Dropoff Point</p>
+              </div>
+              <div className="payment__places">
+                <p>chandrapura</p>
+                <p>hassan bypasss</p>
+              </div>
+              {/* <div>
+                <h6>Selected Seats</h6>
+              </div> */}
+              <div>
+                <p>Selected Seat</p>
+                <p>E</p>
+                <button className="payment__modify" onClick={modify}>
+                  Modify Booking
+                </button>
+              </div>
+            </div>
           </div>
           {/* traveller form */}
           <div className="payment__travellerForm">
