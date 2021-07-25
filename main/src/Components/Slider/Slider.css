@@ -1,7 +1,8 @@
 .main_slider_container{
-    height: 380px;
+    height: 400px;
     width: 98vw;
     margin: auto;
+    /* border: 1px solid red; */
 }
 
  .main_slider_container p{
@@ -9,7 +10,7 @@
     text-align: center;
     color:#000000;
     font-size: 25px;
-  margin-top: 50px;
+  margin-top: 60px;
     font-family: "Open Sans",Helvetica,Arial,sans-serif;
 
 }
