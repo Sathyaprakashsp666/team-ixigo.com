@@ -17,6 +17,8 @@ const busSchema = new Schema(
     VOLVO: { type: Boolean, required: true },
     Sleeper: { type: Boolean, required: true },
     singleseating: { type: Boolean, required: true },
+    seatsL:{type:[[Number]],default:[[0,0,0,0],[0,0,0,0],[1,1,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],]},
+    seatsR:{type:[[Number]],default:[[0,0,0,0],[0,0,0,0],[1,1,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],]}
   },
   {
     versionKey: false,
