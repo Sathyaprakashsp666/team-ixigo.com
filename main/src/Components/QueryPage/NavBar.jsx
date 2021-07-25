@@ -7,9 +7,11 @@ export const NavBar = () => {
 
     return (
         <div className="nav_bar_container">
+            <Link to='/'>
             <div className="ixigo_logo_container">
                 <img src="https://static.startuptalky.com/2020/10/image-35.png" alt="ixigo logo" />
             </div>
+            </Link>
             <div className="categories">
                 <div>
                     <Link className="single_category" to="">FLIGHTS</Link>
