@@ -24,6 +24,7 @@ const getOneRouteFailure = () => {
   };
 };
 
+
 const getRouteBuses = (from, to) => async (dispatch) => {
   dispatch(getOneRouteRequest())
   try {
@@ -36,5 +37,6 @@ const getRouteBuses = (from, to) => async (dispatch) => {
     console.log(err);
   }
 };
+
 
 export { getRouteBuses };

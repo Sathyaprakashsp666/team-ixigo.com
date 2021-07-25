@@ -13,3 +13,9 @@ exports.getRoutes = async (req, res) => {
     .exec();
   res.status(200).json(bus[0]);
 };
+
+exports.getCurrentBus = async(req,res) => {
+  const id = req.params.id
+  const bus = await Route.findById(id)
+  res.status(200).json(bus)
+}

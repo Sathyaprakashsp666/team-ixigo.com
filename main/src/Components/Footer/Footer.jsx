@@ -1,10 +1,11 @@
 import React from 'react'
 import style from './Footer.module.css'
-import Routes from './Routes'
+
 import FooterLink from './FooterLink'
 import FacebookIcon from '@material-ui/icons/Facebook'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import YouTubeIcon from '@material-ui/icons/YouTube'
+import FooterRoutes from './Routes'
 
 const Footer = () => {
   var footerDescription = [
@@ -43,7 +44,7 @@ const Footer = () => {
           <FooterLink />
         </div>
         <div>
-          <Routes />
+        <FooterRoutes />
         </div>
         <div className={style.footerDescription}>
           {footerDescription.map(item => {

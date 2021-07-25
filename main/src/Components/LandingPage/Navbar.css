@@ -6,6 +6,7 @@
   background-image: url(https://images.ixigo.com/image/upload/q_80/banner/22dbf3e72984ada5f189e0f0a59fec6b-lfdge.jpg);
   /* background-image: url(https://images.ixigo.com/image/upload/q_80/banner/30a502c2a62b2bdd7ce623f50922343c-xtczk.jpg); */
 }
+
 .navbar__cont > img {
   width: 100%;
   height: 100%;
@@ -116,8 +117,17 @@
   /* border: 1px solid green; */
 }
 .navbar__offerDiv {
-  margin-top: 120px;
-  margin-left: 40px;
+  height:140px;
+  width: 100vw;
+  /* border: 1px solid red; */
+  margin-top: 140px;
+  background-color:  rgb(235, 231, 231);
+
+}
+.navbar__offerDiv>img{
+  margin-left: 8%;
+  margin-top: -35px;
+  box-shadow: 2px 2px 5px #b1afaf;
 }
 
 .round{
