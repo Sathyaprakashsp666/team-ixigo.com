@@ -23,7 +23,7 @@ const Navbar = () => {
     <div className="navbar__cont">
       <div className="navbar__header">
         <div className="navbar__logo">
-          <Link to="">
+          <Link to="/">
             <img
               src="https://images.ixigo.com/image/upload/f_auto/2110b68e66ac684f22adf5b0e0870798-yfwgh.png"
               alt="ixigo"
@@ -37,7 +37,7 @@ const Navbar = () => {
           <Link to="">TRAINS</Link>
         </div>
         <div>
-          <Link to="">BUSES</Link>
+          <Link to="/search">BUSES</Link>
         </div>
         <div>
           <Link to="">HOTEL</Link>
@@ -57,7 +57,7 @@ const Navbar = () => {
         <div>
           <Link to="">
             <div className="navbar__profilePic">
-              <TransitionsModal img={<FaUserCircle size='2rem'/>} />
+              <TransitionsModal img={<FaUserCircle size="2rem" />} />
             </div>
           </Link>
         </div>
@@ -86,7 +86,7 @@ const Navbar = () => {
               onChange={(e) => setFrom(e.target.value)}
             />
             <button>X</button>
-           
+
             <CgArrowsExchange size="2rem" />
           </div>
         </div>
@@ -104,11 +104,13 @@ const Navbar = () => {
         <div>
           <div className="navbar__text">Date</div>
           <div className="navbar___input">
-            <input type='date' />
+            <input type="date" />
           </div>
         </div>
         <div className="navbar__searchBtn">
-          <Link to="/search"><button onClick={handleClick}>Search</button></Link>
+          <Link to="/search">
+            <button onClick={handleClick}>Search</button>
+          </Link>
         </div>
       </div>
       <div className="navbar__offerDiv">
