@@ -1,10 +1,40 @@
-import { FETCH_USER } from './actionTypes';
+import {
+  FETCH_USER,
+  LOGIN_FAILURE,
+  LOGIN_REQ,
+  LOGIN_SUCCESS,
+  LOGOUT,
+} from './actionTypes';
 
-export const authReducer=(state = null, action)=> {
+// let localStorageValues=
+
+const initState = {
+  isLoading: false,
+  isError: false,
+  isAuth: false,
+  data: {
+    token: localStorage.getItem('token') || null,
+    user: {
+      userID: localStorage.getItem('userID') || null,
+      email: localStorage.getItem('email') || null,
+      name: localStorage.getItem('name') || null,
+    },
+  },
+};
+
+export const authReducer = (state = initState, action) => {
   switch (action.type) {
-    case FETCH_USER:
-      return action.payload || false;
+    case LOGIN_REQ:
+      return { ...state, isLoading: true };
+    case LOGIN_FAILURE:
+      return { ...state, isLoading: false, isError: true };
+
+    case LOGIN_SUCCESS:
+      return { ...state, isLoading: false, isAuth: true, data: action.payload };
+    case LOGOUT:
+      return initState;
+
     default:
       return state;
   }
-}
+};
