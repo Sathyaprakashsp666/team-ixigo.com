@@ -44,11 +44,13 @@ ixigo (pronounced "ik-si-go") is a technology company focused on empowering Indi
 
 ### Snapshots from the built product
 
-<!-- ![landing]()
+
+![landing page](https://github.com/Sathyaprakashsp666/team-ixigo.com/blob/main/ixigo_landing_page.png)
 <br/><br/>
-![login]()
+![login](https://github.com/Sathyaprakashsp666/team-ixigo.com/blob/main/ixigo__login.png)
+![payment](https://github.com/Sathyaprakashsp666/team-ixigo.com/blob/main/ixigo__payment.png)
+![landing](https://github.com/Sathyaprakashsp666/team-ixigo.com/blob/main/ixigo__buses.png)
 <br/><br/>
-![buses]() -->
 
 
 
