@@ -1,15 +1,15 @@
 
-
+import { useState } from "react"
 import styles from "./FilterCard.module.css"
 
-export const FilterCard = () => {
+export const FilterCard = ({filter}) => {
     return (
         <div className={styles.filter_container}>
             <div className={styles.bus_AC_type_container}>
                 <div className={styles.bus_type_container}>Bus Type</div>
                 <div className={styles.AC_VOLVO_container}>
                     <div style={{display: "flex", gap: "5px"}}>
-                        <input type="checkbox" />
+                        <input type="checkbox"/>
                         <div style={{marginTop: "3px", fontSize: "13px", color: "#797979", fontWeight: "600"}}>AC</div>
                     </div>
                     <div style={{display: "flex", gap: "5px"}}>

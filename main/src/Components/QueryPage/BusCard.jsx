@@ -1,8 +1,12 @@
+import { Link } from "react-router-dom";
 import AcUnitIcon from '@material-ui/icons/AcUnit';
 import "./BusCard.css"
 
 
 export const BusCard = ({data}) => {
+    const getCurrentBusData = () => {
+        localStorage.setItem("currentBusData", JSON.stringify(data))
+    }
     return (
         <div className="card_container" >
             <div className="card_container_left_box">
@@ -36,7 +40,7 @@ export const BusCard = ({data}) => {
                         <div> &#8377;{data.seatFare}</div>
                     </div>
                 </div>
-                <button className="select_button">Select Seats</button>
+                <Link to="/payment"><button onClick={getCurrentBusData} className="select_button">Book Now</button></Link>
                 <div className="seats_left_container">{data.availableSeats} Seats Left</div>
             </div>
             
