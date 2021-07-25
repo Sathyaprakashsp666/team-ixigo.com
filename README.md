@@ -7,10 +7,11 @@ ixigo (pronounced "ik-si-go") is a technology company focused on empowering Indi
 
 ## Authors
 
-- [@Sathyaprakashsp666](https://github.com/Sathyaprakashsp666)
+
 - [@mohit512661](https://github.com/mohit512661)
 - [@jayeshk-star](https://github.com/jayeshk-star)
 - [@kamlendr](https://github.com/kamlendr)
+- [@Sathyaprakashsp666](https://github.com/Sathyaprakashsp666)
 
 
 ## Installing and Running
