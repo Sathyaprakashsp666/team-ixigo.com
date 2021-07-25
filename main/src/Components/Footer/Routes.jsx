@@ -12,19 +12,19 @@ const FooterRoutes = () => {
     <div>
      
       <Switch>
-        <Route exact path="/bus" >
+        <Route exact path="/" >
           <Busbooking />
         </Route>
-        <Route exact path="/popular_opp">
+        <Route  path="/popular_opp">
           <PopularBusOpp />
         </Route>
-        <Route exact path="/popular_bus">
+        <Route  path="/popular_bus">
           <PopularBusRoutes />
         </Route>
-        <Route exact path="/top_bus">
+        <Route  path="/top_bus">
           <TopBusRoutes />
         </Route>
-        <Route exact path="/trading_bus">
+        <Route  path="/trading_bus">
           <TradingBusRoutes />
         </Route>
       </Switch>
