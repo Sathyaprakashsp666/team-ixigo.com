@@ -32,7 +32,7 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .gateway__upiCont {
-  height: 440px;
+  height: 350px;
   width: 950px;
   margin: auto;
   display: flex;
@@ -80,4 +80,46 @@
   background-color: orangered;
   color: #fff;
   font-weight: 500;
+}
+.gateway__icons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 40px;
+}
+.gateway__iconTitle{
+ margin-left: 600px;
+ color: gray;
+ font-size: 10px;
+}
+
+.gateway__footer{
+  width: 100%;
+  height: 60px;
+  background-color: #2E013D;
+  height: 53px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+
+.gateway__modalCont{
+  display: flex;
+  flex-direction: column;
+  min-width: 250px;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px
+}
+.gateway__modalGreen{
+  color: green;
+}
+.gateway__modalGray{
+  color: gray;
 }

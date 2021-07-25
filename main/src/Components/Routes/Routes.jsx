@@ -1,8 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Footer from "../Footer/Footer";
 import LandingPage from "../LandingPage/LandingPage";
-import Navbar from "../LandingPage/Navbar";
 import PaymentGateway from "../PaymentPage/PaymentGateway";
 import PaymentPage from "../PaymentPage/PaymentPage";
 import { QueryPage } from "../QueryPage/QueryPage";
@@ -21,7 +19,7 @@ const Routes = () => {
           <PaymentPage />
         </Route>
         <Route exact path="/payment/gateway">
-          <PaymentGateway/>
+          <PaymentGateway />
         </Route>
       </Switch>
     </div>
