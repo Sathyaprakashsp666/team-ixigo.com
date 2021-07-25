@@ -10,7 +10,11 @@ import CallIcon from "@material-ui/icons/Call";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import YouTubeIcon from "@material-ui/icons/YouTube";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,29 +33,42 @@ const PaymentPage = () => {
   const [gender, setGender] = React.useState("");
   const [mobile, setMobile] = React.useState("");
   const [email, setEmail] = React.useState("");
-  const [checked, setChecked] = React.useState(true);
-
   const [fair, setFair] = React.useState(true);
 
-  const handleChange = (event) => {
+  const [state, setState] = React.useState(false);
+
+  const history = useHistory();
+
+  const handleChangeName = (event) => {
     setFname(event.target.value);
+  };
+  const handleChangeLname = (event) => {
     setLname(event.target.value);
+  };
+  const handleChangeAge = (event) => {
     setAge(event.target.value);
-    setGender(event.target.value);
   };
 
-  const handleChange2 = (event) => {
+  const handleChangeMobile = (event) => {
     setMobile(event.target.value);
+  };
+  const handleChangeEmail = (event) => {
     setEmail(event.target.value);
+  };
+  const handleChange2 = (event) => {
+    setGender(event.target.value);
   };
 
   const handleFair = () => {
     setFair(!fair);
   };
 
-  const handleCheck = (event) => {
-    setChecked(event.target.checked);
+  const handlePay = () => {
+    history.push("/payment/gateway");
   };
+
+  // console.log(fname, lname, age, gender);
+
   return (
     <>
       <div className="payment__header">
@@ -69,7 +86,10 @@ const PaymentPage = () => {
       <div className="payment__cont">
         <div className="payment__left">
           {/* booking details */}
-          <div className="payment__bookingDetails"></div>
+          <div className="payment__bookingDetails">
+            <div></div>
+            <div></div>
+          </div>
           {/* traveller form */}
           <div className="payment__travellerForm">
             <div className="payment__travellerForm_1">
@@ -86,7 +106,7 @@ const PaymentPage = () => {
                 multiline
                 maxRows={4}
                 value={fname}
-                onChange={handleChange}
+                onChange={handleChangeName}
                 placeholder="Enter first name"
               />
               &nbsp;
@@ -96,7 +116,7 @@ const PaymentPage = () => {
                 multiline
                 maxRows={4}
                 value={lname}
-                onChange={handleChange}
+                onChange={handleChangeLname}
                 placeholder="Enter last name"
               />
               &nbsp;
@@ -106,11 +126,11 @@ const PaymentPage = () => {
                 multiline
                 maxRows={3}
                 value={age}
-                onChange={handleChange}
+                onChange={handleChangeAge}
                 placeholder="Enter age"
-              />{" "}
+              />
               &nbsp;
-              <FormControl className={classes.formControl}>
+              <FormControl>
                 <InputLabel
                   shrink
                   id="demo-simple-select-placeholder-label-label"
@@ -121,7 +141,7 @@ const PaymentPage = () => {
                   labelId="demo-simple-select-placeholder-label-label"
                   id="demo-simple-select-placeholder-label"
                   value={gender}
-                  onChange={handleChange}
+                  onChange={handleChange2}
                   displayEmpty
                   className={classes.selectEmpty}
                 >
@@ -139,8 +159,12 @@ const PaymentPage = () => {
           {/* contact form */}
           <div className="payment__contactForm">
             <div className="payment__contactForm1">
-              <div>Contact Details</div>
-              <div>Your ticket SMS will be sent to this number and email</div>
+              <div className="payment__contactformTitle">
+                Contact Details&nbsp;
+              </div>
+              <div className="payment__contactformText">
+                Your ticket SMS will be sent to this number and email
+              </div>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <CallIcon color="primary" />
@@ -150,7 +174,7 @@ const PaymentPage = () => {
                 multiline
                 maxRows={4}
                 value={mobile}
-                onChange={handleChange2}
+                onChange={handleChangeMobile}
                 placeholder="Enter mobile number"
               />
               &nbsp;
@@ -161,7 +185,7 @@ const PaymentPage = () => {
                 multiline
                 maxRows={4}
                 value={email}
-                onChange={handleChange2}
+                onChange={handleChangeEmail}
                 placeholder="Enter your email ID"
               />
               &nbsp;
@@ -194,9 +218,11 @@ const PaymentPage = () => {
               <p className="orangered">KNOW MORE</p>
             </div>
 
-            <div className='payment__couponCont'>
+            <div className="payment__couponCont">
               <p className="orangered">Have coupon code .?</p>
-              <p> < ChevronRightIcon color="secondary"/>  </p>
+              <p>
+                <ChevronRightIcon color="secondary" />
+              </p>
             </div>
           </div>
 
@@ -246,9 +272,40 @@ const PaymentPage = () => {
             </label>
           </div>
           <div>
-            <button className="payment__button">PAY SECURELY</button>
+            <button className="payment__button" onClick={handlePay}>
+              PAY SECURELY
+            </button>
           </div>
         </div>
+      </div>
+      <div className="payment__footer">
+        <div className="payment__footerLeft">
+          <p>ABOUT US</p>
+          <p>. PRESS</p>
+          <p>. FAQ</p>
+          <p>. MOBILE</p>
+          <p>. PRIVACY</p>
+          <p>. TERMS OF USE</p>
+          <p>. CAREER</p>
+          <p>. CUSTOMER SERVICE</p>
+        </div>
+        <div className="payment__footerRight">
+          <div>
+            <FacebookIcon />
+          </div>
+          <div>
+            <YouTubeIcon />
+          </div>
+          <div>
+            <TwitterIcon />
+          </div>
+        </div>
+      </div>
+      <div className="gateway__footer">
+        <p>
+          © 2021 Le Travenues Technology Pvt. Ltd. India. All brands are
+          trademarks of their respective owners.
+        </p>
       </div>
     </>
   );
