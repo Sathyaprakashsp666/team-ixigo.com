@@ -66,7 +66,7 @@ exports.login = (req, res, next) => {
         'topsecret',
         { expiresIn: '1h' }
       );
-      res.status(200).json({token:token, userID:storedUser._id.toString()})
+      res.status(200).json({token:token, user:{userID:storedUser._id.toString(),email:storedUser.email,name:storedUser.name}})
     })
     .catch((err) => {
       if (!err.statusCode) {
