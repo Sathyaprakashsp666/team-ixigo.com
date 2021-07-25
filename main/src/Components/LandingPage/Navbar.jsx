@@ -24,6 +24,13 @@ const Navbar = () => {
     setFrom("");
     setTo("");
   }
+const handlereset=()=>{
+  setFrom("")
+}
+const handlereset1=()=>{
+  setTo("")
+}
+
   return (
     <div className="navbar__cont">
       <div className="navbar__header">
@@ -90,7 +97,7 @@ const Navbar = () => {
               value={from}
               onChange={(e) => setFrom(e.target.value)}
             />
-            <button>X</button>
+            <button onClick={handlereset} style={{cursor:"pointer"}}>X</button>
 
             <CgArrowsExchange size="2rem" />
           </div>
@@ -103,7 +110,7 @@ const Navbar = () => {
               value={to}
               onChange={(e) => setTo(e.target.value)}
             />
-            <button>X</button>
+            <button onClick={handlereset1} style={{cursor:"pointer"}}>X</button>
           </div>
         </div>
         <div>
