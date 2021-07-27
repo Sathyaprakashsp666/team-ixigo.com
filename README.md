@@ -32,7 +32,7 @@ ixigo (pronounced "ik-si-go") is a technology company focused on empowering Indi
 > ### react ![React](https://img.shields.io/npm/v/react.svg)
 > ### testing-library/jest-dom ![@testing-library/jest-dom](https://img.shields.io/npm/v/@testing-library/jest-dom.svg)
 > ### testing-library/react ![@testing-library/react](https://img.shields.io/npm/v/@testing-library/react.svg)
-> ### @testing-library/user-event ![@testing-library/user-event](https://img.shields.io/npm/v/@testing-library/user-event.svg)
+> ### testing-library/user-event ![@testing-library/user-event](https://img.shields.io/npm/v/@testing-library/user-event.svg)
 > ### react-dom ![React-dom](https://img.shields.io/npm/v/react-dom.svg)
 > ### axios ![axios](https://img.shields.io/npm/v/axios.svg)
 > ### react-icons ![react-icons](https://img.shields.io/npm/v/react-icons.svg)
