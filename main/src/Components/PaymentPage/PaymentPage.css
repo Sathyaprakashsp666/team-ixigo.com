@@ -249,3 +249,7 @@
 .payment__redWarning{
   color: red;
 }
+
+.payment__round {
+  border-radius: 50%;
+}
