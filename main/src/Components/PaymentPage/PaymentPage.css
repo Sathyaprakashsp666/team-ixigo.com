@@ -12,7 +12,6 @@
 }
 
 .payment__status {
-  /* display: flex; */
   width: 95%;
   height: 90px;
   background-color: #721053;
@@ -31,7 +30,6 @@
 
 .payment__left {
   width: 75%;
-  /* border: 1px solid blue; */
   display: flex;
   flex-direction: column;
   padding: 30px;
@@ -58,7 +56,6 @@
 }
 .payment__bookingDetailsCont > div {
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   gap: 10px;
   height: 50px;
@@ -130,6 +127,7 @@
 }
 .payment__contactformText {
   color: gray;
+  font-size: 14px;
 }
 
 .payment__offerCont {
@@ -137,8 +135,6 @@
   flex-direction: column;
   width: 90%;
   height: 380px;
-  /* margin: 20px; */
-  /* padding-left: 10px; */
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 

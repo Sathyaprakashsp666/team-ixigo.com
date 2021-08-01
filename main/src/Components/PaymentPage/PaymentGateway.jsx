@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./PaymentGateway.css";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
@@ -10,6 +10,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { useHistory } from "react-router";
+import { AuthContext } from "../../contextApi/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -39,6 +40,13 @@ const PaymentGateway = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  //protecting route
+  const { userin } = useContext(AuthContext);
+  const userLogin = localStorage.getItem("userLogin");
+  let { userinLocal } = JSON.parse(userLogin);
+  if (!userin || !userinLocal) {
+    history.push("/");
+  }
 
   //local storage
   const singleBusdata = localStorage.getItem("currentBusData");
@@ -57,7 +65,7 @@ const PaymentGateway = () => {
           </div>
         </Link>
         <div>
-          <div>DP</div>
+          <div>Sathya</div>
         </div>
       </div>
       <div className="gateway__cont">

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-// import { Link } from "react-router-dom";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { CgArrowsExchange } from "react-icons/cg";
 import { FaUserCircle } from "react-icons/fa";
@@ -40,6 +39,10 @@ const Navbar = () => {
     setTo("");
   };
   console.log(from, to);
+  const handleSwap = () => {
+    setFrom(to);
+    setTo(from);
+  };
 
   return (
     <div className="navbar__cont">
@@ -73,9 +76,9 @@ const Navbar = () => {
         <div>
           <Link to="">MORE</Link>
         </div>
-        <div>
+        {/* <div>
           <Link to="">.</Link>
-        </div>
+        </div> */}
         <div>
           <Link to="">
             <div className="navbar__profilePic">
@@ -112,9 +115,9 @@ const Navbar = () => {
               X
             </button>
 
-            <CgArrowsExchange size="2rem" />
+            <CgArrowsExchange size="2rem" onClick={handleSwap} />
           </div>
-           {valid && <p className='navbar__red'>Please enter destination </p>}
+          {valid && <p className="navbar__red">Please enter destination </p>}
         </div>
         <div>
           <div className="navbar__text">To</div>
