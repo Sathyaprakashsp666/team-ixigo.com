@@ -43,10 +43,14 @@ const PaymentPage = () => {
   const [valid, setValid] = React.useState(false);
 
   const history = useHistory();
-  const { userin } = useContext(AuthContext);
+  //Auth context
+  const { userin,url } = useContext(AuthContext);
+
+  //local storage
   const userLogin = localStorage.getItem("userLogin");
-  let { userinLocal } = JSON.parse(userLogin);
-  if(!userin || !userinLocal){
+  let { userinLocal, urlLocal } = JSON.parse(userLogin);
+
+  if(!userin &&  !userinLocal){
     history.push('/')
   }
 
@@ -90,6 +94,7 @@ const PaymentPage = () => {
       Gender: gender,
       Mobile: mobile,
       Email: email,
+      
     };
     if (
       fname.length &&
@@ -106,6 +111,12 @@ const PaymentPage = () => {
   const modify = () => {
     history.push("/search");
   };
+
+  // const { setGmail, setName, setUrl, gmail, name, url, setUserIn, userin } =
+  // useContext(AuthContext);
+  // const userLogin = localStorage.getItem("userLogin");
+  // let { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
+  // console.log(userinLocal, urlLocal);
 
   const singleBusdata = localStorage.getItem("currentBusData");
   let {
@@ -133,7 +144,7 @@ const PaymentPage = () => {
           </div>
         </Link>
         <div>
-          <div>DP</div>
+          <div><img src={ url || urlLocal } alt='DP' className='payment__round'/></div>
         </div>
       </div>
       <div className="payment__status">
@@ -239,12 +250,10 @@ const PaymentPage = () => {
                   className={classes.selectEmpty}
                 >
                   <MenuItem value="">
-                    <em>Other</em>
                   </MenuItem>
                   <MenuItem value={20}>Male</MenuItem>
                   <MenuItem value={30}>Female</MenuItem>
                 </Select>
-                {/* <FormHelperText>Label + placeholder</FormHelperText> */}
               </FormControl>
               &nbsp;
             </div>

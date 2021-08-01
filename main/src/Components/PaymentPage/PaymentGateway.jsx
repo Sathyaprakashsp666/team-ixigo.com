@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./PaymentGateway.css";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
@@ -28,11 +28,15 @@ const useStyles = makeStyles((theme) => ({
 const PaymentGateway = () => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  let orderId = Math.floor(Math.random() * 10000000000000000 + 1);
   const history = useHistory();
 
   const handleOpen = () => {
     setOpen(true);
-    setInterval(() => {
+
+    localStorage.setItem("bookingData", JSON.stringify(bookingData));
+
+    setTimeout(() => {
       history.push("/");
     }, 2000);
   };
@@ -44,15 +48,39 @@ const PaymentGateway = () => {
   const { userin } = useContext(AuthContext);
   const userLogin = localStorage.getItem("userLogin");
   let { userinLocal } = JSON.parse(userLogin);
-  if (!userin || !userinLocal) {
+  if (!userin && !userinLocal) {
     history.push("/");
   }
+  const userData = localStorage.getItem("userDetails");
+  let { Age, Gender, FirstName, LastName, Mobile } = JSON.parse(userData);
 
   //local storage
   const singleBusdata = localStorage.getItem("currentBusData");
-  let { discount, seatFare } = JSON.parse(singleBusdata);
+  let {
+    discount,
+    seatFare,
+    busTypeName,
+    travelerAgentName,
+    arrivalTime,
+    startTime,
+  } = JSON.parse(singleBusdata);
   let taxes = (seatFare / 100) * 2;
   let total = Math.floor(seatFare - taxes - discount);
+
+  const bookingData = {
+    discount,
+    seatFare,
+    busTypeName,
+    travelerAgentName,
+    arrivalTime,
+    startTime,
+    Age,
+    Gender,
+    FirstName,
+    LastName,
+    Mobile,
+    orderId,
+  };
   return (
     <>
       <div className="gateway__header">
@@ -122,11 +150,6 @@ const PaymentGateway = () => {
         <p className="gateway__iconTitle">Your money is safe with us</p>
         <div className="gateway__icons">
           <img
-            src="https://cdn.icon-icons.com/icons2/1316/PNG/512/if-verified-by-visa-2593675_86616.png"
-            alt="verified by visa"
-            width="40px"
-          />
-          <img
             src="https://cdn.iconscout.com/icon/free/png-64/mastercard-3384869-2822950.png"
             alt="master card"
             width="40px"
@@ -168,6 +191,7 @@ const PaymentGateway = () => {
               <p className="gateway__modalGray">
                 Thank You! Your payment is complete
               </p>
+              <p> Order Id: {orderId}</p>
             </div>
           </div>
         </Fade>

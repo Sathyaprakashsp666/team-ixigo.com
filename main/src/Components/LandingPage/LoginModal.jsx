@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from "react-redux";
 import GoogleLogin from "react-google-login";
 import { AuthContext } from "../../contextApi/AuthContext";
 import { useHistory } from "react-router-dom";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -53,7 +55,7 @@ export default function TransitionsModal({ img }) {
   };
   const handleSubmit = (e) => {
     dispatch(login(state));
-    // setOpen(false);
+    setOpen(false);
     // console.log(state);
   };
 
@@ -89,11 +91,10 @@ export default function TransitionsModal({ img }) {
         urlLocal: res.profileObj.imageUrl,
       })
     );
-    // };
   };
 
   const userLogin = localStorage.getItem("userLogin");
-  let { userinLocal, urlLocal } = JSON.parse(userLogin);
+  let { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
   console.log(userinLocal, urlLocal);
 
   return auth.isAuth || userin || userinLocal ? (
@@ -105,17 +106,32 @@ export default function TransitionsModal({ img }) {
           className="login__radius"
           onClick={handledropDown}
         />
-        Hey {name}
+        &nbsp;{name || nameLocal}
       </button>
       {drop && (
         <div className="drop__menus">
-          <button>Account</button>
-          <button>My Trips</button>
-          <button>Customer Service</button>
-          <button>Ixigo Money</button>
-          <button>Alerts</button>
-          <button>Travellers</button>
-          <button onClick={clearLogout}>Logout</button>
+          <Link>
+            <button>Account</button>
+          </Link>
+          <Link to="trips">
+            <button>My Trips</button>
+          </Link>
+          <Link>
+            <button>Customer Service</button>
+          </Link>
+          <Link>
+            {" "}
+            <button>Ixigo Money</button>
+          </Link>
+          <Link>
+            <button>Alerts</button>
+          </Link>
+          <Link>
+            <button>Travellers</button>
+          </Link>
+          <Link>
+            <button onClick={clearLogout}>Logout</button>
+          </Link>
         </div>
       )}
       {/* <button
@@ -195,15 +211,20 @@ export default function TransitionsModal({ img }) {
                   <p>OR</p>
                 </div>
                 <div className="modal__btns">
-                  <button>facebook</button>
+                  <button>
+                    <FacebookIcon />
+                  </button>
                   <button>
                     <GoogleLogin
+                      className="google__cont"
                       clientId="459195761612-ggleb5pijshcq81q1p5svdit5ikieqc3.apps.googleusercontent.com"
                       buttonText="Login"
                       onSuccess={responseGoogle}
                       onFailure={responseGoogle}
                       cookiePolicy={"single_host_origin"}
-                    />
+                    >
+                      Google login{" "}
+                    </GoogleLogin>
                   </button>
                 </div>
                 <div className="modal__policy">

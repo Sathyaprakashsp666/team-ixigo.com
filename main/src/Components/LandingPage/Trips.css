@@ -1,0 +1,75 @@
+.trips__bg {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  background-image: url(https://images.ixigo.com/image/upload/v1441881286/user_banner.jpg);
+}
+.trips__bg > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.trips_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.trips_header a {
+  color: #fff;
+  font-size: 22px;
+  text-decoration: none;
+}
+.trips__space {
+    width: 100%;
+    height: 220px;
+}
+.trips__profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.trips__profile p {
+    font-size: 40px;
+    color: #fff;
+    font-weight: 400;
+}
+.trips__profile   img {
+    border-radius: 50%;
+}
+
+.trips__round {
+    border-radius: 50%;
+}
+
+.trips__recordCont {
+    width: 50%;
+    height:220px ;
+    margin: auto;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: #fff;
+    margin-bottom: 100px;
+    text-transform: capitalize;
+    
+}
+.trips__recordCont > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    
+
+}
+
+.trips__center {
+    margin-left: 630px;
+    text-transform: capitalize;
+}

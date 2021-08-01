@@ -56,31 +56,28 @@ const Navbar = () => {
           </Link>
         </div>
         <div>
-          <Link to="">FLIGHTS</Link>
+          <Link to="/">FLIGHTS</Link>
         </div>
         <div>
-          <Link to="">TRAINS</Link>
+          <Link to="/">TRAINS</Link>
         </div>
         <div>
           <Link to="/search">BUSES</Link>
         </div>
         <div>
-          <Link to="">HOTEL</Link>
+          <Link to="/">HOTEL</Link>
         </div>
         <div>
-          <Link to="">OFFERS</Link>
+          <Link to="/">OFFERS</Link>
         </div>
         <div>
-          <Link to="">TRAVEL STORIES</Link>
+          <Link to="/">TRAVEL STORIES</Link>
         </div>
         <div>
-          <Link to="">MORE</Link>
+          <Link to="/">MORE</Link>
         </div>
-        {/* <div>
-          <Link to="">.</Link>
-        </div> */}
         <div>
-          <Link to="">
+          <Link to="/">
             <div className="navbar__profilePic">
               <TransitionsModal img={<FaUserCircle size="2rem" />} />
             </div>
