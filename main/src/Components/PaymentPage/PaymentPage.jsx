@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./PaymentPage.css";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -15,10 +16,9 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import { useHistory } from "react-router";
-
 import AcUnitIcon from "@material-ui/icons/AcUnit";
-import HorizontalLinearStepper from "./Stepper";
 import HorizontalLabelPositionBelowStepper from "./Stepper";
+import { AuthContext } from "../../contextApi/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,6 +43,12 @@ const PaymentPage = () => {
   const [valid, setValid] = React.useState(false);
 
   const history = useHistory();
+  const { userin } = useContext(AuthContext);
+  const userLogin = localStorage.getItem("userLogin");
+  let { userinLocal } = JSON.parse(userLogin);
+  if(!userin || !userinLocal){
+    history.push('/')
+  }
 
   const handleChangeName = (event) => {
     setFname(event.target.value);
@@ -118,12 +124,14 @@ const PaymentPage = () => {
   return (
     <>
       <div className="payment__header">
-        <div>
-          <img
-            src="https://images.ixigo.com/image/upload/f_auto/8a178b024470af59d0e1387babf3d02c-imdac.png"
-            alt="ixigo"
-          />
-        </div>
+        <Link to="/">
+          <div>
+            <img
+              src="https://images.ixigo.com/image/upload/f_auto/8a178b024470af59d0e1387babf3d02c-imdac.png"
+              alt="ixigo"
+            />
+          </div>
+        </Link>
         <div>
           <div>DP</div>
         </div>
@@ -231,7 +239,7 @@ const PaymentPage = () => {
                   className={classes.selectEmpty}
                 >
                   <MenuItem value="">
-                    <em>None</em>
+                    <em>Other</em>
                   </MenuItem>
                   <MenuItem value={20}>Male</MenuItem>
                   <MenuItem value={30}>Female</MenuItem>
@@ -364,7 +372,7 @@ const PaymentPage = () => {
           </div>
           <div className="payment__policy">
             <label>
-              <input type="checkbox"/>
+              <input type="checkbox" />
               &nbsp;I confirm that I have read, understood and agree with the
               Privacy Policy and Terms of use
             </label>

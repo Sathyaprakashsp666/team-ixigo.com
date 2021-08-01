@@ -7,7 +7,6 @@ import StepLabel from '@material-ui/core/StepLabel';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '0%',
-    color: "white",
   },
   label:{
       color: "white",
@@ -30,8 +29,8 @@ export default function HorizontalLabelPositionBelowStepper() {
     <div className={classes.root}>
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel className={classes.label}>{label}</StepLabel>
+          <Step key={label} >
+            <StepLabel >{label}</StepLabel>
           </Step>
         ))}
       </Stepper>
