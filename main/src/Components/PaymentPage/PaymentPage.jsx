@@ -126,7 +126,6 @@ const PaymentPage = () => {
     discount,
     seatFare,
     startTime,
-    travelTime,
     travelerAgentName,
   } = JSON.parse(singleBusdata);
   let taxes = (seatFare / 100) * 2;

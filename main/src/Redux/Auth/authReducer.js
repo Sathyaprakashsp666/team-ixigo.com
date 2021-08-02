@@ -1,5 +1,4 @@
 import {
-  FETCH_USER,
   LOGIN_FAILURE,
   LOGIN_REQ,
   LOGIN_SUCCESS,

@@ -4,7 +4,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import "./LoginModal.css";
-import { login, logout } from "../../Redux/Auth/action";
+import { login } from "../../Redux/Auth/action";
 import { useDispatch, useSelector } from "react-redux";
 //google OAuth Imports
 import GoogleLogin from "react-google-login";
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TransitionsModal({ img }) {
   //OAuth start
-  const { setGmail, setName, setUrl, gmail, name, url, setUserIn, userin } =
+  const { setGmail, setName, setUrl, name, url, setUserIn, userin } =
     useContext(AuthContext);
   let history = useHistory();
 
@@ -105,6 +105,7 @@ export default function TransitionsModal({ img }) {
           width="40px"
           className="login__radius"
           onClick={handledropDown}
+          alt=""
         />
         &nbsp;{name || nameLocal}
       </button>
@@ -163,7 +164,10 @@ export default function TransitionsModal({ img }) {
           <div className={classes.paper}>
             <div className="modal__cont">
               <div className="modal__left">
-                <img src="https://images.ixigo.com/rt/pc/img/login/bus_banner.png" />
+                <img
+                  src="https://images.ixigo.com/rt/pc/img/login/bus_banner.png"
+                  alt=""
+                />
               </div>
               <div className="modal__right">
                 <div className="modal__signup">

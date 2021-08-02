@@ -1,5 +1,4 @@
-
-import { useState } from "react"
+import React from "react"
 import styles from "./FilterCard.module.css"
 
 export const FilterCard = ({filter}) => {
