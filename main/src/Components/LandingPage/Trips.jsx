@@ -7,9 +7,13 @@ const Trips = () => {
   const {  name, url } =
     useContext(AuthContext);
   console.log(url);
-  const userLogin = localStorage.getItem("userLogin");
-  let { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
-  console.log(userinLocal, urlLocal);
+  // const userLogin = localStorage.getItem("userLogin");
+  // let { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
+  // console.log(userinLocal, urlLocal);
+  let userLogin = localStorage.getItem("userLogin")
+  if (userLogin !== null) {
+    var { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
+  }
 
   const bookingData = localStorage.getItem("bookingData");
   let {
