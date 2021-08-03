@@ -46,11 +46,12 @@ const PaymentPage = () => {
   //Auth context
   const { userin,url } = useContext(AuthContext);
 
-  //local storage
-  // const userLogin = localStorage.getItem("userLogin");
-  // let { userinLocal, urlLocal } = JSON.parse(userLogin);
+  let userLogin = localStorage.getItem("userLogin")
+  if (userLogin !== null) {
+    var { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
+  }
 
-  if(!userin){
+  if(!userin && !userLogin){
     history.push('/')
     alert('Please login')
   }
@@ -144,7 +145,7 @@ const PaymentPage = () => {
           </div>
         </Link>
         <div>
-          <div><img src={ url  } alt='DP' className='payment__round'/></div>
+          <div><img src={ url || urlLocal  } alt='DP' className='payment__round'/></div>
         </div>
       </div>
       <div className="payment__status">

@@ -92,22 +92,29 @@ export default function TransitionsModal({ img }) {
       })
     );
   };
+  //   const userLogin = localStorage.getItem("userLogin");
+  //   {userLogin &&  { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin)}
 
-  // const userLogin= localStorage.getItem("userLogin");
-  // let { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
-  // console.log(userinLocal, urlLocal);
+  //   if (!(localStorage.getItem("infiniteScrollEnabled") == true || localStorage.getItem("infiniteScrollEnabled") == false)) {
+  //     // init variable/set default variable for item
+  //     localStorage.setItem("infiniteScrollEnabled", true);
+  // }
+  let userLogin = localStorage.getItem("userLogin")
+  if (userLogin !== null) {
+    var { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
+  }
 
-  return auth.isAuth || userin  ? (
+  return auth.isAuth || userin || userinLocal ? (
     <div>
       <button className="login_button">
         <img
-          src={url }   
+          src={url || urlLocal}
           width="40px"
           className="login__radius"
           onClick={handledropDown}
           alt=""
         />
-        &nbsp;{name }
+        &nbsp;{name || nameLocal}
       </button>
       {drop && (
         <div className="drop__menus">
@@ -121,7 +128,6 @@ export default function TransitionsModal({ img }) {
             <button>Customer Service</button>
           </Link>
           <Link>
-            {" "}
             <button>Ixigo Money</button>
           </Link>
           <Link>
