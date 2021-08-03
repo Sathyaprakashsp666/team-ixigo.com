@@ -55,8 +55,10 @@ ixigo is a technology company focused on empowering Indian travelers to plan, bo
 
 
 ## Hosted Platform 
-
-vercel: 
+###Front end
+Netlify: https://ixigo-clone.netlify.app
+###Backend
+ Heroku : https://ixigo-clone.herokuapp.com/
 
 ## Technologies Used
 
