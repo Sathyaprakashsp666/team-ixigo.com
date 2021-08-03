@@ -234,8 +234,9 @@ export default function TransitionsModal({ img }) {
                       cookiePolicy={"single_host_origin"}
                       
                     >
-                      Google login{" "}
+                      Google login
                     </GoogleLogin>
+                    Google
                   </button>
                 </div>
                 <div className="modal__policy">
