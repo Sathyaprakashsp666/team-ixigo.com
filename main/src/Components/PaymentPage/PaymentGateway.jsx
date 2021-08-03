@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./PaymentGateway.css";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
@@ -46,9 +46,9 @@ const PaymentGateway = () => {
   };
   //protecting route
   const { userin } = useContext(AuthContext);
-  const userLogin = localStorage.getItem("userLogin");
-  let { userinLocal } = JSON.parse(userLogin);
-  if (!userin && !userinLocal) {
+  // const userLogin = localStorage.getItem("userLogin");
+  // let { userinLocal } = JSON.parse(userLogin);
+  if (!userin) {
     history.push("/");
   }
   const userData = localStorage.getItem("userDetails");

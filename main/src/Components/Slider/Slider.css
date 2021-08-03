@@ -2,7 +2,6 @@
   height: 370px;
   width: 98vw;
   margin: auto;
-  /* border: 1px solid red; */
 
 }
 
@@ -13,6 +12,7 @@
   font-size: 25px;
   margin-top: 60px;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
+ 
 }
 .center img {
   height: 250px;
@@ -20,6 +20,7 @@
   margin: 20px 30px;
   display: block;
   /* margin: auto; */
+  
 }
 .slickk-arrow {
   color: black;

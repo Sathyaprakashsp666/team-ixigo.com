@@ -5,7 +5,6 @@ import PopularBusOpp from './PopularBusOpp'
 import PopularBusRoutes from './PopularBusRoutes'
 import TopBusRoutes from './TopBusRoutes'
 import TradingBusRoutes from './TradingBusRoutes'
-import FooterLink from "./FooterLink"
 
 const FooterRoutes = () => {
   return (

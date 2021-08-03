@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contextApi/AuthContext";
 
 const Trips = () => {
-  const { setGmail, setName, setUrl, gmail, name, url, setUserIn, userin } =
+  const {  name, url } =
     useContext(AuthContext);
   console.log(url);
   const userLogin = localStorage.getItem("userLogin");
@@ -14,12 +14,8 @@ const Trips = () => {
   const bookingData = localStorage.getItem("bookingData");
   let {
     FirstName,
-    Gender,
     LastName,
-    Mobile,
     arrivalTime,
-    busTypeName,
-    discount,
     orderId,
     seatFare,
     startTime,
@@ -34,6 +30,7 @@ const Trips = () => {
               src="https://edge.ixigo.com/img/zeus/ixigo_logo_white-02.png"
               alt="ixigo"
               width="70px"
+              alt='ixigo'
             />
           </Link>
           <Link>flights</Link>
@@ -49,7 +46,7 @@ const Trips = () => {
         <div className="trips__space"></div>
         <div className="trips__profile">
           <div>
-            <img src={url || urlLocal} width="150px" />
+            <img src={url || urlLocal} width="150px" alt='' />
           </div>
           <div>
             <p>{name || nameLocal}</p>
@@ -69,9 +66,6 @@ const Trips = () => {
           <p>
             <b>Name:</b> {FirstName} {LastName}
           </p>
-          {/* <p>
-            <b>Gender:</b> {Gender}
-          </p> */}
         </div>
         <div>
          
