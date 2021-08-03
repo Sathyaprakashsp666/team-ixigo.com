@@ -46,9 +46,9 @@ const PaymentGateway = () => {
   };
   //protecting route
   const { userin } = useContext(AuthContext);
-  const userLogin = localStorage.getItem("userLogin");
-  let { userinLocal } = JSON.parse(userLogin);
-  if (!userin && !userinLocal) {
+  // const userLogin = localStorage.getItem("userLogin");
+  // let { userinLocal } = JSON.parse(userLogin);
+  if (!userin) {
     history.push("/");
   }
   const userData = localStorage.getItem("userDetails");

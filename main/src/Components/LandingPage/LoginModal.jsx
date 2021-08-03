@@ -93,21 +93,21 @@ export default function TransitionsModal({ img }) {
     );
   };
 
-  const userLogin = localStorage.getItem("userLogin");
-  let { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
-  console.log(userinLocal, urlLocal);
+  // const userLogin= localStorage.getItem("userLogin");
+  // let { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
+  // console.log(userinLocal, urlLocal);
 
-  return auth.isAuth || userin || userinLocal ? (
+  return auth.isAuth || userin  ? (
     <div>
       <button className="login_button">
         <img
-          src={url || urlLocal}
+          src={url }   
           width="40px"
           className="login__radius"
           onClick={handledropDown}
           alt=""
         />
-        &nbsp;{name || nameLocal}
+        &nbsp;{name }
       </button>
       {drop && (
         <div className="drop__menus">

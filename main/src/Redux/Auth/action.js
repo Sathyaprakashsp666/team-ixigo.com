@@ -15,7 +15,7 @@ export const fetchUser = () => async (dispatch) => {
 export const login = (payload) => async (dispatch) => {
   dispatch({ type: LOGIN_REQ });
   try {
-    const user = await axios.post('http://localhost:7000/auth/login', payload);
+    const user = await axios.post('https://teax-ixigo-clone.herokuapp.com/auth/login', payload);
     localStorage.setItem("userID",user.data.user.userID)
     localStorage.setItem("email",user.data.user.email)
     localStorage.setItem("name",user.data.user.name)
