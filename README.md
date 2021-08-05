@@ -1,7 +1,5 @@
 # Ixigo- Website Clone
-A website where user can first register then they can book bus ticket with different types of buses. E.g AC buses,non AC ,volvo etc
 
-Tech stack:HTML,CSS,redux,nodejs,mongodb
 
 <!-- Ixigo is an OTA platform allows travellers to book train, flight & bus tickets, hotels and cabs, while providing travel utility tools -->
 
