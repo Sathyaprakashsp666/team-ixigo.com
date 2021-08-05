@@ -1,6 +1,6 @@
 # Ixigo- Website Clone
 
-Ixigo is an OTA platform allows travellers to book train, flight & bus tickets, hotels and cabs, while providing travel utility tools
+<!-- Ixigo is an OTA platform allows travellers to book train, flight & bus tickets, hotels and cabs, while providing travel utility tools -->
 
 #### Logo: 
 ![](https://upload.wikimedia.org/wikipedia/commons/a/af/Ixigo_logo.png "Logo")
