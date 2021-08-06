@@ -1,29 +1,49 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-// import { Link } from "react-router-dom";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { CgArrowsExchange } from "react-icons/cg";
 import { FaUserCircle } from "react-icons/fa";
 import TransitionsModal from "./LoginModal";
-import { getRouteBuses } from './../../Redux/FetchBuses/action';
-
-
-
+import { getRouteBuses } from "./../../Redux/FetchBuses/action";
+import { useHistory } from "react-router";
 
 const Navbar = () => {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const dispatch = useDispatch();
-  
-  
+  const history = useHistory();
+
+  const [valid, setValid] = useState(false);
 
   function handleClick() {
+    if (!from || !to) {
+      setValid(true);
+      return;
+    }
+    if (from.length && to.length > 2) {
+      history.push("/search");
+      setValid(false);
+    }
+    console.log(valid);
+
     console.log(1);
-    dispatch(getRouteBuses(from,to));
+    dispatch(getRouteBuses(from, to));
     setFrom("");
     setTo("");
   }
+  const handlereset = () => {
+    setFrom("");
+  };
+  const handlereset1 = () => {
+    setTo("");
+  };
+  console.log(from, to);
+  const handleSwap = () => {
+    setFrom(to);
+    setTo(from);
+  };
+
   return (
     <div className="navbar__cont">
       <div className="navbar__header">
@@ -36,31 +56,28 @@ const Navbar = () => {
           </Link>
         </div>
         <div>
-          <Link to="">FLIGHTS</Link>
+          <Link to="/">FLIGHTS</Link>
         </div>
         <div>
-          <Link to="">TRAINS</Link>
+          <Link to="/">TRAINS</Link>
         </div>
         <div>
           <Link to="/search">BUSES</Link>
         </div>
         <div>
-          <Link to="">HOTEL</Link>
+          <Link to="/">HOTEL</Link>
         </div>
         <div>
-          <Link to="">OFFERS</Link>
+          <Link to="/">OFFERS</Link>
         </div>
         <div>
-          <Link to="">TRAVEL STORIES</Link>
+          <Link to="/">TRAVEL STORIES</Link>
         </div>
         <div>
-          <Link to="">MORE</Link>
+          <Link to="/">MORE</Link>
         </div>
         <div>
-          <Link to="">.</Link>
-        </div>
-        <div>
-          <Link to="">
+          <Link to="/">
             <div className="navbar__profilePic">
               <TransitionsModal img={<FaUserCircle size="2rem" />} />
             </div>
@@ -89,11 +106,15 @@ const Navbar = () => {
               type="text"
               value={from}
               onChange={(e) => setFrom(e.target.value)}
+              required
             />
-            <button>X</button>
+            <button onClick={handlereset} style={{ cursor: "pointer" }}>
+              X
+            </button>
 
-            <CgArrowsExchange size="2rem" />
+            <CgArrowsExchange size="2rem" onClick={handleSwap} />
           </div>
+          {valid && <p className="navbar__red">Please enter destination </p>}
         </div>
         <div>
           <div className="navbar__text">To</div>
@@ -102,22 +123,27 @@ const Navbar = () => {
               type="text"
               value={to}
               onChange={(e) => setTo(e.target.value)}
+              required
             />
-            <button>X</button>
+
+            <button onClick={handlereset1} style={{ cursor: "pointer" }}>
+              X
+            </button>
           </div>
         </div>
         <div>
           <div className="navbar__text">Date</div>
           <div className="navbar___input">
-            <input type="date" />
+            <input className="navbar___inputDate" type="date" />
           </div>
         </div>
         <div className="navbar__searchBtn">
-          <Link to="/search">
-            <button onClick={handleClick}>Search</button>
-          </Link>
+          {/* <Link to="/search"> */}
+          <button onClick={handleClick}>Search</button>
+          {/* </Link> */}
         </div>
       </div>
+
       <div className="navbar__offerDiv">
         <img
           src="https://images.ixigo.com/image/upload/ab8b26de34dbc46de922bd9b16c9e202-nopfl.png"

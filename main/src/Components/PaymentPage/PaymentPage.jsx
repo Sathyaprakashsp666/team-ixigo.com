@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./PaymentPage.css";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -15,6 +16,9 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import { useHistory } from "react-router";
+import AcUnitIcon from "@material-ui/icons/AcUnit";
+import HorizontalLabelPositionBelowStepper from "./Stepper";
+import { AuthContext } from "../../contextApi/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,8 +40,21 @@ const PaymentPage = () => {
   const [fair, setFair] = React.useState(true);
 
   const [state, setState] = React.useState(false);
+  const [valid, setValid] = React.useState(false);
 
   const history = useHistory();
+  //Auth context
+  const { userin,url } = useContext(AuthContext);
+
+  let userLogin = localStorage.getItem("userLogin")
+  if (userLogin !== null) {
+    var { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
+  }
+
+  if(!userin && !userLogin){
+    history.push('/')
+    alert('Please login')
+  }
 
   const handleChangeName = (event) => {
     setFname(event.target.value);
@@ -63,32 +80,120 @@ const PaymentPage = () => {
     setFair(!fair);
   };
 
+  // console.log(fname, lname, age, gender, mobile, email);
   const handlePay = () => {
-    history.push("/payment/gateway");
+    if (!fname || !lname || !age) {
+      setState(true);
+    }
+    if (!mobile && !email) {
+      setValid(true);
+    }
+
+    const payload = {
+      FirstName: fname,
+      LastName: lname,
+      Age: age,
+      Gender: gender,
+      Mobile: mobile,
+      Email: email,
+      
+    };
+    if (
+      fname.length &&
+      lname.length &&
+      age.length &&
+      mobile.length &&
+      email.length >= 1
+    ) {
+      history.push("/payment/gateway");
+    }
+    // console.log(payload)
+    localStorage.setItem("userDetails", JSON.stringify(payload));
+  };
+  const modify = () => {
+    history.push("/search");
   };
 
-  // console.log(fname, lname, age, gender);
+  // const { setGmail, setName, setUrl, gmail, name, url, setUserIn, userin } =
+  // useContext(AuthContext);
+  // const userLogin = localStorage.getItem("userLogin");
+  // let { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
+  // console.log(userinLocal, urlLocal);
+
+  const singleBusdata = localStorage.getItem("currentBusData");
+  let {
+    AC,
+    arrivalTime,
+    busTypeName,
+    discount,
+    seatFare,
+    startTime,
+    travelerAgentName,
+  } = JSON.parse(singleBusdata);
+  let taxes = (seatFare / 100) * 2;
+  let total = Math.floor(seatFare - taxes - discount);
 
   return (
     <>
       <div className="payment__header">
+        <Link to="/">
+          <div>
+            <img
+              src="https://images.ixigo.com/image/upload/f_auto/8a178b024470af59d0e1387babf3d02c-imdac.png"
+              alt="ixigo"
+            />
+          </div>
+        </Link>
         <div>
-          <img
-            src="https://images.ixigo.com/image/upload/f_auto/8a178b024470af59d0e1387babf3d02c-imdac.png"
-            alt="ixigo"
-          />
-        </div>
-        <div>
-          <div>DP</div>
+          <div><img src={ url || urlLocal  } alt='DP' className='payment__round'/></div>
         </div>
       </div>
-      <div className="payment__status"></div>
+      <div className="payment__status">
+        <HorizontalLabelPositionBelowStepper />
+      </div>
       <div className="payment__cont">
         <div className="payment__left">
           {/* booking details */}
           <div className="payment__bookingDetails">
-            <div></div>
-            <div></div>
+            <div className="payment__bookingDetailsCont">
+              <div>
+                <h3>{travelerAgentName}</h3>
+                <AcUnitIcon fontSize="small" />
+                <h3>{AC ? "AC" : "NONAC"}</h3>
+              </div>
+              <div>
+                <h3>{startTime}</h3>
+                <img
+                  src="https://cdn.kastatic.org/ka-perseus-graphie/a26f5a5d1677c840eb556ced719307a3de52c26f.png"
+                  alt="line"
+                  width="170px"
+                />
+                <h3>{arrivalTime}</h3>
+              </div>
+              <div>
+                <p>{busTypeName}</p>
+              </div>
+            </div>
+            <div className="payment__bookingDetailsContR">
+              <div className="payment__points">
+                <p>Pickup Point</p>
+                <p>Dropoff Point</p>
+              </div>
+              <div className="payment__places">
+                <p>chandrapura</p>
+                <p>hassan bypasss</p>
+              </div>
+              {/* <div>
+                <h6>Selected Seats</h6>
+              </div> */}
+              <div>
+                <p>Selected Seat</p>
+                <p>E</p>
+                <button className="payment__modify" onClick={modify}>
+                  Modify Booking
+                </button>
+              </div>
+            </div>
           </div>
           {/* traveller form */}
           <div className="payment__travellerForm">
@@ -146,14 +251,19 @@ const PaymentPage = () => {
                   className={classes.selectEmpty}
                 >
                   <MenuItem value="">
-                    <em>None</em>
                   </MenuItem>
                   <MenuItem value={20}>Male</MenuItem>
                   <MenuItem value={30}>Female</MenuItem>
                 </Select>
-                {/* <FormHelperText>Label + placeholder</FormHelperText> */}
               </FormControl>
               &nbsp;
+            </div>
+            <div>
+              {state && (
+                <p className="payment__redWarning">
+                  Please fill the required credentials
+                </p>
+              )}
             </div>
           </div>
           {/* contact form */}
@@ -189,6 +299,11 @@ const PaymentPage = () => {
                 placeholder="Enter your email ID"
               />
               &nbsp;
+            </div>
+            <div>
+              {valid && (
+                <p className="payment__redWarning">Please fill contact form</p>
+              )}
             </div>
           </div>
         </div>
@@ -243,32 +358,33 @@ const PaymentPage = () => {
               <>
                 <div className="payment__cal">
                   <p className="payment__gray">&nbsp; Bus Fare</p>&nbsp;
-                  <p>&nbsp;₹ 766</p>
+                  <p>&nbsp;₹ {seatFare}</p>
                 </div>
                 <div className="payment__cal">
                   <p className="payment__gray">Texes and fees</p>
-                  <p>&nbsp; &nbsp;&nbsp;&nbsp; ₹ 766</p>
+                  <p>&nbsp; &nbsp;&nbsp;&nbsp; ₹ {taxes} </p>
                 </div>
                 <div className="payment__cal">
                   <p className="payment__green"> Promotinal discount</p>
-                  <p className="payment__green"> &nbsp; -₹ 766</p>
+                  <p className="payment__green"> &nbsp; -₹ {discount}</p>
                 </div>
                 <div className="payment__cal">
                   <h4 className="payment__orange"> You Pay</h4>
-                  <h4 className="payment__orange"> ₹ 766</h4>
+                  <h4 className="payment__orange"> ₹ {total}</h4>
                 </div>
               </>
             ) : (
               <div>
                 <h5>Payable amount</h5>
-                <h5> ₹ 768</h5>
+                <h5> ₹ {total}</h5>
               </div>
             )}
           </div>
           <div className="payment__policy">
             <label>
-              <input type="checkbox" /> &nbsp;I confirm that I have read,
-              understood and agree with the Privacy Policy and Terms of use
+              <input type="checkbox" />
+              &nbsp;I confirm that I have read, understood and agree with the
+              Privacy Policy and Terms of use
             </label>
           </div>
           <div>

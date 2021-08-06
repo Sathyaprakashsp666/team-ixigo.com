@@ -1,11 +1,11 @@
 .navbar__cont {
   width: 100%;
   height: 550px;
-  /* border: 1px solid red; */
   background-size: 100%;
   background-image: url(https://images.ixigo.com/image/upload/q_80/banner/22dbf3e72984ada5f189e0f0a59fec6b-lfdge.jpg);
   /* background-image: url(https://images.ixigo.com/image/upload/q_80/banner/30a502c2a62b2bdd7ce623f50922343c-xtczk.jpg); */
 }
+
 .navbar__cont > img {
   width: 100%;
   height: 100%;
@@ -18,7 +18,6 @@
   width: 95%;
   justify-content: space-between;
   align-items: center;
-  /* border: 1px solid red; */
   margin: auto;
   margin-bottom: 100px;
 }
@@ -27,7 +26,6 @@
   text-transform: uppercase;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.774);
-  /* color: gray; */
   font-weight: 500;
   line-height: 27.5px;
 }
@@ -45,7 +43,6 @@
   margin: auto;
   justify-content: space-around;
   align-items: center;
-  /* border: 1px solid red; */
   min-height: 50px;
   margin-bottom: 50px;
 }
@@ -72,7 +69,6 @@
   flex-direction: column;
   width: 100%;
   height: 50px;
-  /* border: 1px solid green; */
 }
 .navbar___input {
   display: flex;
@@ -110,16 +106,25 @@
 }
 
 .navbar__profilePic {
-  width: 50px;
-  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
   border-radius: 50%;
-  /* border: 1px solid green; */
 }
 .navbar__offerDiv {
-  margin-top: 120px;
-  margin-left: 40px;
+  height: 140px;
+  width: 100vw;
+  margin-top: 140px;
+  background-color: rgb(235, 231, 231);
+}
+.navbar__offerDiv > img {
+  margin-left: 8%;
+  margin-top: -35px;
+  box-shadow: 2px 2px 5px #b1afaf;
 }
 
-.round{
-    border-radius: 50%;
+.round {
+  border-radius: 50%;
+}
+.navbar__red{
+  color: red;
 }

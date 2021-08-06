@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from 'react-router-dom'
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import "./PaymentGateway.css";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import AccountBalanceWalletIcon from "@material-ui/icons/AccountBalanceWallet";
@@ -9,6 +9,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import { useHistory } from "react-router";
+import { AuthContext } from "../../contextApi/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -18,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    // border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
@@ -27,34 +28,80 @@ const useStyles = makeStyles((theme) => ({
 const PaymentGateway = () => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  let orderId = Math.floor(Math.random() * 10000000000000000 + 1);
+  const history = useHistory();
 
   const handleOpen = () => {
     setOpen(true);
+
+    localStorage.setItem("bookingData", JSON.stringify(bookingData));
+
+    setTimeout(() => {
+      history.push("/");
+    }, 2000);
   };
 
   const handleClose = () => {
     setOpen(false);
   };
+  //protecting route
+  const { userin } = useContext(AuthContext);
+  let userLogin = localStorage.getItem("userLogin")
+  if (userLogin !== null) {
+    var { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
+  }
+  if (!userin && !userinLocal) {
+    history.push("/");
+  }
+  const userData = localStorage.getItem("userDetails");
+  let { Age, Gender, FirstName, LastName, Mobile } = JSON.parse(userData);
+
+  //local storage
+  const singleBusdata = localStorage.getItem("currentBusData");
+  let {
+    discount,
+    seatFare,
+    busTypeName,
+    travelerAgentName,
+    arrivalTime,
+    startTime,
+  } = JSON.parse(singleBusdata);
+  let taxes = (seatFare / 100) * 2;
+  let total = Math.floor(seatFare - taxes - discount);
+
+  const bookingData = {
+    discount,
+    seatFare,
+    busTypeName,
+    travelerAgentName,
+    arrivalTime,
+    startTime,
+    Age,
+    Gender,
+    FirstName,
+    LastName,
+    Mobile,
+    orderId,
+  };
   return (
     <>
       <div className="gateway__header">
-        <Link to='/'>
-        <div>
-          <img
-            src="https://images.ixigo.com/image/upload/f_auto/8a178b024470af59d0e1387babf3d02c-imdac.png"
-            alt="ixigo"
-          />
-        </div>
+        <Link to="/">
+          <div>
+            <img
+              src="https://images.ixigo.com/image/upload/f_auto/8a178b024470af59d0e1387babf3d02c-imdac.png"
+              alt="ixigo"
+            />
+          </div>
         </Link>
         <div>
-          <div>DP</div>
+          <div>Sathya</div>
         </div>
       </div>
-
       <div className="gateway__cont">
         <div className="gateway__title">
           <p>AMOUNT TO PAY</p>
-          <h4> ₹ 564&nbsp; &nbsp; </h4>
+          <h4> ₹ {total}&nbsp; &nbsp; </h4>
         </div>
         <div className="gateway__upiCont">
           <div className="gateway__upiContLeft">
@@ -105,11 +152,6 @@ const PaymentGateway = () => {
         <p className="gateway__iconTitle">Your money is safe with us</p>
         <div className="gateway__icons">
           <img
-            src="https://cdn.icon-icons.com/icons2/1316/PNG/512/if-verified-by-visa-2593675_86616.png"
-            alt="verified by visa"
-            width="40px"
-          />
-          <img
             src="https://cdn.iconscout.com/icon/free/png-64/mastercard-3384869-2822950.png"
             alt="master card"
             width="40px"
@@ -147,8 +189,11 @@ const PaymentGateway = () => {
                 alt=""
                 width="70px"
               />
-              <h3 className='gateway__modalGreen'>Payment Successful</h3>
-              <p className='gateway__modalGray'>Thank You! Your payment is complete</p>
+              <h3 className="gateway__modalGreen">Payment Successful</h3>
+              <p className="gateway__modalGray">
+                Thank You! Your payment is complete
+              </p>
+              <p> Order Id: {orderId}</p>
             </div>
           </div>
         </Fade>

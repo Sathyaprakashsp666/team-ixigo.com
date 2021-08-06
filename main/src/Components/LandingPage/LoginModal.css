@@ -19,7 +19,6 @@
   width: 450px;
   height: 550px;
   background-color: #fff;
-  /* border: 1px solid black; */
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -72,13 +71,51 @@
   height: 44px;
   border: none;
   outline: none;
-  background-color: blue;
+  background-color: rgb(9, 117, 160);
   margin: 20px;
+  overflow: hidden;
+}
+.google__cont {
+  width: 80px;
+  height: 43px;
 }
 .modal__policy {
   font-size: 12px;
   color: gray;
 }
-/* .modal__policy span {
-  color: orangered;
-} */
+
+.login__radius {
+  border-radius: 50%;
+}
+.login_button {
+  min-width: 80px;
+  border: 1px solid #fff;
+  margin-right: 100px;
+  text-align: center;
+  background: none;
+  color: #fff;
+  
+}
+
+.drop__menus {
+  position: absolute;
+  background-color: #ffffff;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-width: 175px;
+  margin-top: 0px;
+  padding-left: 20px;
+}
+
+.drop__menus button {
+  outline: none;
+  border: none;
+  background-color: #fff;
+  color: gray;
+}
+
+.drop__menus a:hover {
+  background-color: rgba(255, 68, 0, 0.111);
+}
