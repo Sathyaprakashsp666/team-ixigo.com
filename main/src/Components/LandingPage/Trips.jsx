@@ -4,27 +4,25 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contextApi/AuthContext";
 
 const Trips = () => {
-  const {  name, url } =
-    useContext(AuthContext);
-  console.log(url);
-  // const userLogin = localStorage.getItem("userLogin");
-  // let { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
-  // console.log(userinLocal, urlLocal);
-  let userLogin = localStorage.getItem("userLogin")
+  const { name, url } = useContext(AuthContext);
+
+  let userLogin = localStorage.getItem("userLogin");
   if (userLogin !== null) {
     var { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
   }
 
-  const bookingData = localStorage.getItem("bookingData");
-  let {
-    FirstName,
-    LastName,
-    arrivalTime,
-    orderId,
-    seatFare,
-    startTime,
-    travelerAgentName,
-  } = JSON.parse(bookingData);
+  let bookingData = localStorage.getItem("bookingData");
+  if (bookingData !== null) {
+    var {
+      FirstName,
+      LastName,
+      arrivalTime,
+      orderId,
+      seatFare,
+      startTime,
+      travelerAgentName,
+    } = JSON.parse(bookingData);
+  }
   return (
     <>
       <div className="trips__bg">
@@ -34,7 +32,7 @@ const Trips = () => {
               src="https://edge.ixigo.com/img/zeus/ixigo_logo_white-02.png"
               alt="ixigo"
               width="70px"
-              alt='ixigo'
+              alt="ixigo"
             />
           </Link>
           <Link>flights</Link>
@@ -50,7 +48,7 @@ const Trips = () => {
         <div className="trips__space"></div>
         <div className="trips__profile">
           <div>
-            <img src={url || urlLocal} width="150px" alt='' />
+            <img src={url || urlLocal} width="150px" alt="" />
           </div>
           <div>
             <p>{name || nameLocal}</p>
@@ -59,36 +57,42 @@ const Trips = () => {
       </div>
       <h3 className="trips__center">My trips</h3>
 
-      <div className="trips__recordCont">
-        <div>
-          <h4>Delhi to Manali</h4>|
-          <p>
-            <b>Travl Agent :</b> {travelerAgentName}
-          </p>
+      {bookingData ? (
+        <div className="trips__recordCont">
+          <div>
+            <h4>Delhi to Manali</h4>|
+            <p>
+              <b>Travl Agent :</b> {travelerAgentName}
+            </p>
+          </div>
+          <div>
+            <p>
+              <b>Name:</b> {FirstName} {LastName}
+            </p>
+          </div>
+          <div>
+            <p>
+              <b>Start Time:</b>
+              {startTime}
+            </p>
+            |
+            <p>
+              <b>Arriving Time:</b>
+              {arrivalTime}
+            </p>
+          </div>
+          <div>
+            <b>Seat Fare :</b> {seatFare}
+          </div>
+          <div>
+            <b>Order Id :</b> {orderId}
+          </div>
         </div>
-        <div>
-          <p>
-            <b>Name:</b> {FirstName} {LastName}
-          </p>
-        </div>
-        <div>
-         
-          <p>
-            <b>Start Time:</b>
-            {startTime}
-          </p>|
-          <p>
-            <b>Arriving Time:</b>
-            {arrivalTime}
-          </p>
-        </div>
-        <div>
-          <b>Seat Fare :</b> {seatFare}
-        </div>
-        <div>
-          <b>Order Id :</b> {orderId}
-        </div>
-      </div>
+      ) : (
+        <h1 style={{ marginLeft: "350px" }}>
+          You haven't made any bookings through ixibook
+        </h1>
+      )}
       <div className="gateway__footer">
         <p>
           © 2021 Le Travenues Technology Pvt. Ltd. India. All brands are
