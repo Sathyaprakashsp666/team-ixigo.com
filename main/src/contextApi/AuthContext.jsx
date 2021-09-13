@@ -18,7 +18,6 @@ function AuthContextProvider({ children }) {
     url,
     setUrl,
   };
-  // localStorage.setItem("userLogin", JSON.stringify(value));
 
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

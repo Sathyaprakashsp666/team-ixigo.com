@@ -9,8 +9,8 @@ import { getRouteBuses } from "./../../Redux/FetchBuses/action";
 import { useHistory } from "react-router";
 
 const Navbar = () => {
-  const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
+  const [from, setFrom] = useState("delhi");
+  const [to, setTo] = useState("manali");
   const dispatch = useDispatch();
   const history = useHistory();
 

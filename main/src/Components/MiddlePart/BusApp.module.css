@@ -1,4 +1,4 @@
-body{
+body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -10,7 +10,7 @@ body{
 .right_image > p {
   font-size: 24px;
   color: #000000;
-  font-family: 14px/1.7 'Open Sans', Helvetica, Arial, sans-serif;
+  font-family: 14px/1.7 "Open Sans", Helvetica, Arial, sans-serif;
 }
 .right_image {
   margin-top: 250px;
@@ -22,14 +22,14 @@ body{
 }
 
 header {
-  font-size:13px;
+  font-size: 13px;
 }
 
 @media (min-width: 350px) and (max-width: 1100px) {
   .left_image {
     display: none;
   }
-  .right_image{
+  .right_image {
     display: none;
   }
 }
