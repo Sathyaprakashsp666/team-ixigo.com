@@ -44,27 +44,17 @@ const PaymentPage = () => {
 
   const history = useHistory();
   //Auth context
-  const { userin,url } = useContext(AuthContext);
+  const { userin, url } = useContext(AuthContext);
 
-  let userLogin = localStorage.getItem("userLogin")
+  let userLogin = localStorage.getItem("userLogin");
   if (userLogin !== null) {
     var { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
   }
 
-  if(!userin && !userLogin){
-    history.push('/')
-    alert('Please login')
+  if (!userin && !userLogin) {
+    history.push("/");
+    alert("Please login");
   }
-
-  const handleChangeName = (event) => {
-    setFname(event.target.value);
-  };
-  const handleChangeLname = (event) => {
-    setLname(event.target.value);
-  };
-  const handleChangeAge = (event) => {
-    setAge(event.target.value);
-  };
 
   const handleChangeMobile = (event) => {
     setMobile(event.target.value);
@@ -96,7 +86,6 @@ const PaymentPage = () => {
       Gender: gender,
       Mobile: mobile,
       Email: email,
-      
     };
     if (
       fname.length &&
@@ -113,12 +102,6 @@ const PaymentPage = () => {
   const modify = () => {
     history.push("/search");
   };
-
-  // const { setGmail, setName, setUrl, gmail, name, url, setUserIn, userin } =
-  // useContext(AuthContext);
-  // const userLogin = localStorage.getItem("userLogin");
-  // let { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
-  // console.log(userinLocal, urlLocal);
 
   const singleBusdata = localStorage.getItem("currentBusData");
   let {
@@ -145,7 +128,9 @@ const PaymentPage = () => {
           </div>
         </Link>
         <div>
-          <div><img src={ url || urlLocal  } alt='DP' className='payment__round'/></div>
+          <div>
+            <img src={url || urlLocal} alt="DP" className="payment__round" />
+          </div>
         </div>
       </div>
       <div className="payment__status">
@@ -207,12 +192,13 @@ const PaymentPage = () => {
             <div>
               <TextField
                 id="standard-multiline-flexible"
-                label="First Name"
+                label="Name"
                 multiline
                 maxRows={4}
                 value={fname}
-                onChange={handleChangeName}
+                onChange={(e) => setFname(e.target.value)}
                 placeholder="Enter first name"
+                required
               />
               &nbsp;
               <TextField
@@ -221,7 +207,7 @@ const PaymentPage = () => {
                 multiline
                 maxRows={4}
                 value={lname}
-                onChange={handleChangeLname}
+                onChange={(e) => setLname(e.target.value)}
                 placeholder="Enter last name"
               />
               &nbsp;
@@ -231,8 +217,9 @@ const PaymentPage = () => {
                 multiline
                 maxRows={3}
                 value={age}
-                onChange={handleChangeAge}
+                onChange={(e) => setAge(e.target.value)}
                 placeholder="Enter age"
+                required
               />
               &nbsp;
               <FormControl>
@@ -246,12 +233,11 @@ const PaymentPage = () => {
                   labelId="demo-simple-select-placeholder-label-label"
                   id="demo-simple-select-placeholder-label"
                   value={gender}
-                  onChange={handleChange2}
+                  onChange={(e) => setGender(e.target.value)}
                   displayEmpty
                   className={classes.selectEmpty}
                 >
-                  <MenuItem value="">
-                  </MenuItem>
+                  <MenuItem value=""></MenuItem>
                   <MenuItem value={20}>Male</MenuItem>
                   <MenuItem value={30}>Female</MenuItem>
                 </Select>
@@ -284,8 +270,9 @@ const PaymentPage = () => {
                 multiline
                 maxRows={4}
                 value={mobile}
-                onChange={handleChangeMobile}
+                onChange={(e) => setMobile(e.target.value)}
                 placeholder="Enter mobile number"
+                required
               />
               &nbsp;
               <MailOutlineIcon color="primary" />
@@ -295,7 +282,7 @@ const PaymentPage = () => {
                 multiline
                 maxRows={4}
                 value={email}
-                onChange={handleChangeEmail}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email ID"
               />
               &nbsp;

@@ -59,25 +59,18 @@ export default function TransitionsModal({ img }) {
     // console.log(state);
   };
 
-  //logout
+  //logout (removing login from local storage)
 
   const clearLogout = () => {
     setName("");
     setUrl("");
     setDrop(false);
     setUserIn(false);
-    localStorage.setItem(
-      "userLogin",
-      JSON.stringify({
-        nameLocal: "",
-        userinLocal: false,
-        urlLocal: "",
-      })
-    );
+    localStorage.removeItem("userLogin");
   };
 
   const responseGoogle = (res) => {
-    console.log(res);
+    // console.log(res);
     setName(res.profileObj.name);
     setGmail(res.profileObj.email);
     setUrl(res.profileObj.imageUrl);
@@ -92,14 +85,8 @@ export default function TransitionsModal({ img }) {
       })
     );
   };
-  //   const userLogin = localStorage.getItem("userLogin");
-  //   {userLogin &&  { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin)}
 
-  //   if (!(localStorage.getItem("infiniteScrollEnabled") == true || localStorage.getItem("infiniteScrollEnabled") == false)) {
-  //     // init variable/set default variable for item
-  //     localStorage.setItem("infiniteScrollEnabled", true);
-  // }
-  let userLogin = localStorage.getItem("userLogin")
+  let userLogin = localStorage.getItem("userLogin");
   if (userLogin !== null) {
     var { userinLocal, urlLocal, nameLocal } = JSON.parse(userLogin);
   }
@@ -141,13 +128,7 @@ export default function TransitionsModal({ img }) {
           </Link>
         </div>
       )}
-      {/* <button
-        onClick={() => {
-          dispatch(logout());
-        }}
-      >
-        Logout
-      </button> */}
+     
     </div>
   ) : (
     <div>
@@ -232,7 +213,6 @@ export default function TransitionsModal({ img }) {
                       onSuccess={responseGoogle}
                       onFailure={responseGoogle}
                       cookiePolicy={"single_host_origin"}
-                      
                     >
                       Google login
                     </GoogleLogin>
